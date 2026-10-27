@@ -1,4 +1,6 @@
 import "./globals.css";
+import "./casino.css";
+import "./features.css";
 
 export const metadata = {
   title: "HorseBet — Casino & Deportes | Demo de diseño",

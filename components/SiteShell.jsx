@@ -27,12 +27,12 @@ import { ObjectArt } from "./Artwork";
 const navigation = [
   ["Casino", Spade],
   ["Deportes", Volleyball],
-  ["Torneos", Target],
-  ["Promociones", Gift],
+  ["Misiones", Target],
+  ["Bonos", Gift],
   ["Club VIP", Crown],
   ["Cripto y Gana", CircleDollarSign],
-  ["Novedades", Megaphone],
-  ["Afiliados", Users],
+  ["Promociones", Megaphone],
+  ["Referidos", Users],
   ["Comunidad", Box],
   ["Ayuda", ClipboardList],
 ];
@@ -205,8 +205,8 @@ export function Footer({ onAction }) {
       <div className="footer__columns">
         {[
           ["Casino", "Slots", "Internos", "Deportes"],
-          ["Promociones", "Club VIP", "Torneos", "Cripto y Gana"],
-          ["Ayuda", "Comunidad", "Afiliados", "Juego responsable"],
+          ["Misiones", "Bonos", "Club VIP", "Promociones", "Cripto y Gana"],
+          ["Referidos", "Ayuda", "Comunidad", "Afiliados", "Juego responsable"],
         ].map((column, i) => (
           <div key={i}>
             {column.map((label) => (
@@ -282,10 +282,7 @@ export function MobileNav({ current, onNavigate, onAction, onMenu }) {
         <Spade size={21} />
         Casino
       </button>
-      <button
-        className="mobile-nav__gift"
-        onClick={() => onAction("Promociones")}
-      >
+      <button className="mobile-nav__gift" onClick={() => onAction("Bonos")}>
         <Gift size={24} />
         Bonos
       </button>

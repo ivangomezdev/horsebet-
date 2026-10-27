@@ -49,6 +49,9 @@ export default function GameSection({
   onFavorite,
   onSeeAll,
   id,
+  seeAllLabel,
+  badge,
+  showAllCard = false,
 }) {
   const rail = useRef(null);
   const [offset, setOffset] = useState(0);
@@ -66,10 +69,14 @@ export default function GameSection({
   return (
     <section className="game-section" id={id}>
       <div className="section-heading">
-        <h2>{title}</h2>
+        <div className="section-heading__title">
+          <h2>{title}</h2>
+          {badge && <span className="section-heading__badge">{badge}</span>}
+        </div>
         <div className="section-heading__actions">
           <button className="text-button" onClick={onSeeAll}>
-            Ir {title === "Internos" ? "al Casino" : "a Slots"}
+            {seeAllLabel ||
+              `Ir ${title === "Internos" ? "al Casino" : "a Slots"}`}
             <ChevronRight size={16} />
           </button>
           <button
@@ -98,6 +105,11 @@ export default function GameSection({
             onFavorite={onFavorite}
           />
         ))}
+        {showAllCard && (
+          <button className="game-section__all" onClick={onSeeAll}>
+            Ver todos <ChevronRight size={18} />
+          </button>
+        )}
       </div>
     </section>
   );

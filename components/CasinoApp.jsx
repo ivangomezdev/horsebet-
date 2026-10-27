@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   ChevronRight,
   Headphones,
-  Search,
-  X,
-  Heart,
   Trophy,
   ShieldCheck,
   Zap,
@@ -14,13 +12,15 @@ import {
 } from "lucide-react";
 import { Header, Sidebar, Footer, MobileNav } from "./SiteShell";
 import Hero from "./Hero";
-import GameSection, { GameCard } from "./GameSection";
+import GameSection from "./GameSection";
+import CasinoLobby from "./CasinoLobby";
+import FeaturePages from "./FeaturePages";
+import { featurePath } from "../data/features";
 import { GameArt, ObjectArt } from "./Artwork";
 import Modal from "./Modal";
 import Sports, { SportsPreview } from "./Sports";
 import { games, originals } from "../data/content";
 
-const allGames = [...games, ...originals];
 function readLocal(key, fallback) {
   try {
     return JSON.parse(localStorage.getItem(key)) ?? fallback;
@@ -36,14 +36,13 @@ function saveLocal(key, value) {
   }
 }
 
-export default function CasinoApp() {
-  const [view, setView] = useState("Inicio");
+export default function CasinoApp({ initialView = "Inicio" }) {
+  const router = useRouter();
+  const [view, setView] = useState(initialView);
   const [expanded, setExpanded] = useState(false);
   const [modal, setModal] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [user, setUser] = useState("");
-  const [filter, setFilter] = useState("Todos");
-  const [query, setQuery] = useState("");
   const [sport, setSport] = useState("Fútbol");
   useEffect(() => {
     const savedFavorites = readLocal("horsebet-demo-favorites", []);
@@ -57,25 +56,39 @@ export default function CasinoApp() {
           ? "Casino"
           : page === "deportes"
             ? "Deportes"
-            : "Inicio",
+            : initialView,
       );
     };
     syncHash();
     window.addEventListener("hashchange", syncHash);
     return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
-  const navigate = (next, selectedSport) => {
+  }, [initialView]);
+  const navigate = (next, selectedSport, category) => {
     setView(next);
     setExpanded(false);
     if (selectedSport) setSport(selectedSport);
-    window.location.hash = next === "Inicio" ? "inicio" : next.toLowerCase();
+    if (next === "Casino") {
+      const hash =
+        category === "Slots"
+          ? "#slots"
+          : category === "Internos"
+            ? "#originales"
+            : "";
+      router.push(`/es/casino/${hash}`);
+    } else if (featurePath(next)) {
+      router.push(featurePath(next));
+    } else if (next === "Inicio") {
+      router.push("/es/");
+    } else {
+      window.location.hash = "deportes";
+    }
     window.scrollTo({ top: 0, behavior: "instant" });
   };
   const open = (type) => {
-    if (["Casino", "Deportes"].includes(type)) return navigate(type);
+    if (["Casino", "Deportes"].includes(type) || featurePath(type))
+      return navigate(type);
     if (["Slots", "Internos"].includes(type)) {
-      setFilter(type);
-      return navigate("Casino");
+      return navigate("Casino", undefined, type);
     }
     setModal({ type });
   };
@@ -88,16 +101,6 @@ export default function CasinoApp() {
       return next;
     });
   const onPlay = (game) => setModal({ type: "game", game });
-  const catalog = allGames.filter(
-    (game) =>
-      (filter === "Todos" ||
-        (filter === "Favoritos" && favorites.includes(game.id)) ||
-        (filter === "Slots" && games.includes(game)) ||
-        (filter === "Internos" && originals.includes(game))) &&
-      `${game.title} ${game.provider}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
-  );
   const commonGameProps = { onPlay, favorites, onFavorite: toggleFavorite };
   return (
     <div className="site-shell">
@@ -212,8 +215,7 @@ export default function CasinoApp() {
                 games={games}
                 {...commonGameProps}
                 onSeeAll={() => {
-                  setFilter("Slots");
-                  navigate("Casino");
+                  navigate("Casino", undefined, "Slots");
                 }}
               />
               <GameSection
@@ -222,8 +224,7 @@ export default function CasinoApp() {
                 games={originals}
                 {...commonGameProps}
                 onSeeAll={() => {
-                  setFilter("Internos");
-                  navigate("Casino");
+                  navigate("Casino", undefined, "Internos");
                 }}
               />
               <section className="purchase-banner">
@@ -286,84 +287,18 @@ export default function CasinoApp() {
             </div>
           </>
         ) : view === "Casino" ? (
-          <div className="content content--page">
-            <section className="catalog">
-              <div className="catalog__heading">
-                <div>
-                  <p className="eyebrow">ENCUENTRA TU PRÓXIMO FAVORITO</p>
-                  <h1>Casino</h1>
-                </div>
-                <span className="catalog__count">
-                  {allGames.length} juegos para explorar
-                </span>
-              </div>
-              <div className="catalog__toolbar">
-                <div className="catalog__tabs">
-                  {["Todos", "Slots", "Internos", "Favoritos"].map((tab) => (
-                    <button
-                      key={tab}
-                      className={`catalog__tab ${tab === filter ? "catalog__tab--active" : ""}`}
-                      onClick={() => setFilter(tab)}
-                    >
-                      {tab === "Favoritos" && <Heart size={16} />} {tab}
-                    </button>
-                  ))}
-                </div>
-                <label className="search">
-                  <Search size={18} />
-                  <input
-                    aria-label="Buscar juegos"
-                    placeholder="Buscar juegos o proveedores"
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                  />
-                  {query && (
-                    <button
-                      aria-label="Limpiar búsqueda"
-                      onClick={() => setQuery("")}
-                    >
-                      <X size={16} />
-                    </button>
-                  )}
-                </label>
-              </div>
-              <div className="catalog__grid">
-                {catalog.map((game) => (
-                  <GameCard
-                    key={game.id}
-                    game={game}
-                    onPlay={onPlay}
-                    onFavorite={toggleFavorite}
-                    favorite={favorites.includes(game.id)}
-                  />
-                ))}
-              </div>
-              {!catalog.length && (
-                <div className="empty-state">
-                  <Search size={38} />
-                  <h2>
-                    {filter === "Favoritos" && !query
-                      ? "Tus favoritos empiezan aquí"
-                      : "No encontramos juegos"}
-                  </h2>
-                  <p>
-                    {filter === "Favoritos" && !query
-                      ? "Pulsa el corazón de cualquier juego para guardarlo."
-                      : "Prueba otro nombre o selecciona otra categoría."}
-                  </p>
-                  <button
-                    className="button button--secondary"
-                    onClick={() => {
-                      setFilter("Todos");
-                      setQuery("");
-                    }}
-                  >
-                    Explorar todos los juegos
-                  </button>
-                </div>
-              )}
-            </section>
-          </div>
+          <CasinoLobby
+            onAction={open}
+            {...commonGameProps}
+            onHome={() => navigate("Inicio")}
+          />
+        ) : featurePath(view) ? (
+          <FeaturePages
+            key={view}
+            view={view}
+            onAction={open}
+            onHome={() => navigate("Inicio")}
+          />
         ) : (
           <div className="content content--page">
             <Sports key={sport} initialSport={sport} />
