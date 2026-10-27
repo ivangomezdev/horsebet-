@@ -37,36 +37,36 @@ export const originals = [
   {
     id: "dice",
     title: "Dice",
-    provider: "BETFURY",
+    provider: "HORSEBET",
     object: "dice",
     color: "green",
   },
-  { id: "gems", title: "Gems", provider: "BETFURY", art: 1, color: "purple" },
+  { id: "gems", title: "Gems", provider: "HORSEBET", art: 1, color: "purple" },
   {
     id: "space",
     title: "Space Dice",
-    provider: "BETFURY",
+    provider: "HORSEBET",
     object: "dice",
     color: "blue",
   },
   {
     id: "coin",
     title: "Coin Flip",
-    provider: "BETFURY",
+    provider: "HORSEBET",
     object: "coins",
     color: "gold",
   },
   {
     id: "plinko",
     title: "Plinko",
-    provider: "BETFURY",
+    provider: "HORSEBET",
     special: "plinko",
     color: "red",
   },
   {
     id: "crash",
     title: "Crash",
-    provider: "BETFURY",
+    provider: "HORSEBET",
     special: "crash",
     color: "pink",
   },
@@ -122,10 +122,10 @@ export const information = {
   Torneos: [
     "La emoción de competir",
     "Explora los torneos de Slots, Originals y Deportes.",
-    "Clasificación de ejemplo: 1. FuryPlayer · 2. LuckyFox · 3. CryptoAce",
+    "Clasificación de ejemplo: 1. HorsePlayer · 2. LuckyFox · 3. CryptoAce",
   ],
   Afiliados: [
-    "Crece con BetFury",
+    "Crece con HorseBet",
     "Descubre el programa de afiliados y las herramientas para creadores.",
   ],
   Comunidad: [
@@ -133,7 +133,7 @@ export const information = {
     "Comparte tu pasión por los juegos y descubre las novedades.",
   ],
   Novedades: [
-    "Lo último en BetFury",
+    "Lo último en HorseBet",
     "Nuevos juegos, nuevas experiencias y más entretenimiento cada semana.",
   ],
   Ayuda: [

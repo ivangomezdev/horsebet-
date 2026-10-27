@@ -1,4 +1,4 @@
-# BetFury · recreación de interfaz
+# HorseBet · Casino y Deportes
 
 Proyecto Next.js con App Router, React y **JSX**, CSS convencional con metodología **BEM**, sin TypeScript y sin Tailwind. Inspirado en la página española de BetFury, con paleta oscura, acentos rojos y recursos gráficos originales generados con ImageGen.
 
@@ -42,7 +42,7 @@ El build genera una exportación estática en `out/`. Puede alojarse en cualquie
 
 ## Alcance
 
-Esta es una recreación visual independiente. No se conecta a BetFury, no contiene un motor de apuestas ni procesadores de pago, y no permite depósitos ni transacciones. Los importes, promociones y eventos son contenido ilustrativo. El logotipo se representa mediante texto y una marca vectorial original. Las fuentes Inter y Barlow Condensed se cargan desde Google Fonts con fuentes de sistema como alternativa.
+Esta es una recreación visual independiente. No se conecta a BetFury, no contiene un motor de apuestas ni procesadores de pago, y no permite depósitos ni transacciones. Los importes, promociones y eventos son contenido ilustrativo. El logotipo combina el nombre HorseBet con una cabeza de caballo vectorial original. El banner utiliza una mascota equina 3D generada con ImageGen. Las fuentes Inter y Barlow Condensed se cargan desde Google Fonts con fuentes de sistema como alternativa.
 
 ## Verificación
 

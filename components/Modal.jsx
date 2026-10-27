@@ -158,7 +158,7 @@ export default function Modal({ modal, onClose, onAuth, user, onLogout }) {
         </>
       ) : (
         <>
-          <div className="modal__label">BETFURY · DEMO</div>
+          <div className="modal__label">HORSEBET · DEMO</div>
           <h2 id="modal-title">{modal.type}</h2>
           {(content || ["Explora esta experiencia de demostración."]).map(
             (paragraph, i) =>

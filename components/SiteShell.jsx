@@ -50,7 +50,7 @@ export function Header({ onNavigate, onAction, expanded, setExpanded, user }) {
         </button>
         <button
           className="header__home"
-          aria-label="BetFury: inicio"
+          aria-label="HorseBet: inicio"
           onClick={() => onNavigate("Inicio")}
         >
           <Brand />
@@ -254,14 +254,13 @@ export function Footer({ onAction }) {
       <div className="footer__legal">
         <span className="footer__age">18+</span>
         <p>
-          Recreación independiente de la interfaz de BetFury. Proyecto de
-          demostración con imágenes originales generadas con IA. No está
-          afiliado a BetFury y no permite apuestas, depósitos ni pagos reales.
-          Los importes y eventos son ilustrativos.
+          HorseBet es un proyecto de demostración con imágenes originales
+          generadas con IA. Esta versión no permite apuestas, depósitos ni pagos
+          reales. Los importes y eventos son ilustrativos.
         </p>
       </div>
       <div className="footer__copyright">
-        <span>© 2026 · Demo de diseño BetFury</span>
+        <span>© 2026 · Demo de diseño HorseBet</span>
         <button onClick={() => onAction("Juego responsable")}>
           Juega responsablemente
         </button>

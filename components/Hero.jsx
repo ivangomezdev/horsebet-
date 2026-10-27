@@ -40,7 +40,7 @@ export default function Hero({ onAction }) {
       <img
         className="hero__art"
         src="/images/hero.png"
-        alt="Mapache con sudadera roja junto a una máquina de casino y monedas doradas"
+        alt="Caballo con sudadera roja junto a una máquina de casino y monedas doradas"
         fetchPriority="high"
       />
       <div className="hero__content" key={active}>

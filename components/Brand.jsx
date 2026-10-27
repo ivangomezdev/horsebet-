@@ -1,25 +1,31 @@
 export default function Brand() {
   return (
-    <span className="brand" aria-label="BetFury">
+    <span className="brand" aria-label="HorseBet">
       <svg
         className="brand__mark"
-        viewBox="0 0 48 44"
+        viewBox="0 0 48 48"
         fill="none"
         aria-hidden="true"
       >
         <path
-          d="M6 20 5 4l14 8h10L43 4l-1 16 3 12-12 9H15L3 32Z"
-          fill="#dce3ed"
-          stroke="#697484"
-          strokeWidth="2"
+          d="M13 44c3-8 6-12 10-15l-9 5-8-6 7-13 8-6 3-7 5 7 7 3 6 11-2 21H13Z"
+          fill="#392620"
+          stroke="#edc19b"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
         />
-        <path d="m8 8 9 7-8 4m31-11-9 7 8 4" fill="#ff174b" />
-        <path d="m6 24 10-7 8 5 8-5 10 7-7 11-11-5-11 5Z" fill="#17202c" />
-        <path d="m12 24 8 3-5 3m21-6-8 3 5 3" fill="white" />
-        <path d="m19 32 5-3 5 3-5 5Z" fill="#10151d" />
+        <path d="m28 8 8 4 6 11-2 21h-9l1-18-4-18Z" fill="#ff174b" />
+        <path d="m22 10 6 2 7 10-5 7-9 3-7 2-8-6 7-13 9-5Z" fill="#bc743e" />
+        <path d="m23 11 3 2-7 13-6 5-5-4 7-12 8-4Z" fill="#f2e4d5" />
+        <path d="m13 25 8 3-6 5-8-5 6-3Z" fill="#8c512f" />
+        <path d="m21 17 7 1-5 4-2-5Z" fill="#201a18" />
+        <path d="m23 18 3 1-2 1-1-2Z" fill="white" />
+        <path d="m23 8 1-4 2 5-3-1Z" fill="#f5cfaf" />
+        <ellipse cx="11.8" cy="27.2" rx="1.6" ry="1.2" fill="#2e211c" />
+        <path d="m31 33 6 5-1 6H20l11-11Z" fill="#a42a32" />
       </svg>
       <span>
-        BET<span className="brand__accent">FURY</span>
+        HORSE<span className="brand__accent">BET</span>
       </span>
     </span>
   );

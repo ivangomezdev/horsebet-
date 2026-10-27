@@ -46,9 +46,9 @@ export default function CasinoApp() {
   const [query, setQuery] = useState("");
   const [sport, setSport] = useState("Fútbol");
   useEffect(() => {
-    const savedFavorites = readLocal("betfury-demo-favorites", []);
+    const savedFavorites = readLocal("horsebet-demo-favorites", []);
     setFavorites(Array.isArray(savedFavorites) ? savedFavorites : []);
-    const savedUser = readLocal("betfury-demo-user", "");
+    const savedUser = readLocal("horsebet-demo-user", "");
     setUser(typeof savedUser === "string" ? savedUser : "");
     const syncHash = () => {
       const page = window.location.hash.slice(1);
@@ -84,7 +84,7 @@ export default function CasinoApp() {
       const next = previous.includes(id)
         ? previous.filter((item) => item !== id)
         : [...previous, id];
-      saveLocal("betfury-demo-favorites", next);
+      saveLocal("horsebet-demo-favorites", next);
       return next;
     });
   const onPlay = (game) => setModal({ type: "game", game });
@@ -123,7 +123,7 @@ export default function CasinoApp() {
           <>
             <Hero onAction={open} />
             <div className="content">
-              <section className="destinations" aria-label="Explora BetFury">
+              <section className="destinations" aria-label="Explora HorseBet">
                 <button
                   className="destination destination--casino"
                   onClick={() => navigate("Casino")}
@@ -131,7 +131,7 @@ export default function CasinoApp() {
                   <span>
                     <strong>Casino</strong>
                     <span>
-                      Disfruta de BetFury Originals y otros juegos de
+                      Disfruta de HorseBet Originals y otros juegos de
                       <br className="desktop-break" /> casino de los mejores
                       proveedores.
                     </span>
@@ -269,7 +269,7 @@ export default function CasinoApp() {
                 ))}
               </section>
               <section className="about">
-                <h2>BetFury — Casino Cripto y Deportes</h2>
+                <h2>HorseBet — Casino Cripto y Deportes</h2>
                 <p>
                   Todo un universo de entretenimiento en un solo lugar. Descubre
                   juegos originales, explora tus slots favoritos y disfruta de
@@ -394,12 +394,12 @@ export default function CasinoApp() {
           user={user}
           onAuth={(alias) => {
             setUser(alias);
-            saveLocal("betfury-demo-user", alias);
+            saveLocal("horsebet-demo-user", alias);
             setModal(null);
           }}
           onLogout={() => {
             setUser("");
-            saveLocal("betfury-demo-user", "");
+            saveLocal("horsebet-demo-user", "");
             setModal(null);
           }}
         />
