@@ -89,10 +89,19 @@ export async function POST(request, { params }) {
             : "No se pudo crear la cuenta. Revisa los datos y prueba con otro usuario.",
           400,
         );
-      if (data.user?.identities?.length)
-        await completeProfile(admin, data.user.id, input);
-      // Do not sign in automatically. Enable Confirm email in the Supabase project.
-      if (data.session) await client.auth.signOut({ scope: "local" });
+      try {
+        if (data.user?.identities?.length)
+          await completeProfile(admin, data.user.id, input);
+        if (data.session) {
+          const user = await verifiedUser(client);
+          if (!user) throw new Error("SESSION_CHECK_UNAVAILABLE");
+          await clearRecovery();
+          return response({ ok: true, authenticated: true });
+        }
+      } catch (error) {
+        if (data.session) await client.auth.signOut({ scope: "local" });
+        throw error;
+      }
       return response({
         ok: true,
         message:
@@ -148,6 +157,11 @@ export async function POST(request, { params }) {
       return response({ ok: true });
     }
     if (action === "recover" || action === "resend") {
+      if (!config.emailEnabled)
+        throw new ApiError(
+          "El envío de correos todavía no está disponible. Contacta con soporte si necesitas recuperar tu cuenta.",
+          503,
+        );
       const options = { redirectTo: `${config.origin}/auth/confirm/` };
       const result =
         action === "recover"

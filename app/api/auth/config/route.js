@@ -13,6 +13,7 @@ export function GET(request) {
     configured: authConfigured(),
     googleEnabled:
       authConfigured() && process.env.AUTH_GOOGLE_ENABLED === "true",
+    emailEnabled: authConfigured() && process.env.AUTH_EMAIL_ENABLED === "true",
     country,
     countrySource: country ? "location" : null,
   });

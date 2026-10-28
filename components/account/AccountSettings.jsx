@@ -132,7 +132,7 @@ export default function AccountSettings({ data, canEdit, onSaved }) {
           <span>Email</span>
           {data && (
             <span className="account-status account-status--success">
-              <BadgeCheck size={14} /> Verificado
+              <BadgeCheck size={14} /> Registrado
             </span>
           )}
         </div>

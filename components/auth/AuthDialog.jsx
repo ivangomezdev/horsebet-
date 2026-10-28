@@ -135,7 +135,9 @@ export default function AuthDialog({
       };
     try {
       const result = await apiRequest(`/api/auth/${action}/`, body);
-      if (registration || recovery) {
+      if (registration && result.authenticated) {
+        await onAuthenticated();
+      } else if (registration || recovery) {
         setMessage(result.message);
         event.target.reset();
       } else if (reset) {
@@ -270,7 +272,9 @@ export default function AuthDialog({
         )}
         {recovery && (
           <p className="auth-modal__intro">
-            Te enviaremos un enlace seguro a tu correo.
+            {config?.emailEnabled
+              ? "Te enviaremos un enlace seguro a tu correo."
+              : "El envío de correos todavía no está disponible. Contacta con soporte si necesitas recuperar tu cuenta."}
           </p>
         )}
         {config && !config.configured && (
@@ -467,7 +471,9 @@ export default function AuthDialog({
           )}
           <button
             className="button button--primary auth-form-new__submit"
-            disabled={busy || !config?.configured}
+            disabled={
+              busy || !config?.configured || (recovery && !config?.emailEnabled)
+            }
             type="submit"
           >
             {busy ? <LoaderCircle className="auth-spinner" size={18} /> : null}
@@ -482,7 +488,7 @@ export default function AuthDialog({
                     : "Iniciar sesión"}
           </button>
         </form>
-        {!complete && !reset && !recovery && (
+        {!complete && !reset && !recovery && config?.googleEnabled && (
           <>
             <div className="auth-modal__separator">
               <span />o<span />
@@ -501,7 +507,7 @@ export default function AuthDialog({
             )}
           </>
         )}
-        {mode === "login" && (
+        {mode === "login" && config?.emailEnabled && (
           <button className="auth-modal__text" onClick={() => onMode("resend")}>
             Reenviar correo de confirmación
           </button>

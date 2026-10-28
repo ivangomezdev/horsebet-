@@ -1,6 +1,6 @@
 # HorseBet: Supabase, Google y Vercel
 
-El código está preparado, pero todavía no está conectado a Supabase ni a Google. Sin configuración, se puede revisar el diseño y los formularios de acceso quedan desactivados. No se ha desplegado esta versión.
+HorseBet está publicado en https://horsebet-rho.vercel.app y conectado al proyecto Supabase HorseBet. Las cuatro migraciones están aplicadas. El registro y el acceso usan Supabase Auth con contraseña; por decisión del propietario, la confirmación de correo está desactivada temporalmente y el registro abre la sesión directamente. Google y el envío de correos siguen desactivados hasta configurar sus proveedores.
 
 ## 1. Variables locales
 
@@ -15,6 +15,7 @@ Usa Node.js 22 o posterior. Ejecuta `npm ci` y `npm run setup:local`. El segundo
 | `AUTH_RATE_LIMIT_SECRET` | Secreto generado por el script para proteger los identificadores de los límites de acceso. |
 | `KYC_ENCRYPTION_KEY` | Clave generada de 32 bytes en base64; cifra los campos personales de KYC. |
 | `AUTH_GOOGLE_ENABLED` | `false` inicialmente; `true` tras configurar Google. |
+| `AUTH_EMAIL_ENABLED` | `false` sin SMTP; `true` tras configurar y comprobar los envíos y plantillas. |
 | `DEV_COUNTRY` | Opcional: código como `MX`, solo en desarrollo. |
 
 Conserva una copia segura de la clave KYC junto con las copias de seguridad: perderla impide leer los datos cifrados. No la cambies sobre una base existente sin migrar los datos. Usa proyectos y secretos diferentes para pruebas y producción.
@@ -36,10 +37,10 @@ Crean perfiles, monederos, contabilidad de doble entrada, movimientos, partidas,
 
 En Authentication:
 
-- Habilita Email y **Confirm email**.
+- Email está habilitado. Actualmente **Confirm email** está desactivado por petición del propietario: no se verifica la propiedad del correo. Cuando se configure SMTP, vuelve a activarlo; el código admite ambos modos.
 - Mantén **Secure email change** habilitado para confirmar ambas direcciones.
 - Configura un mínimo de 12 caracteres para las contraseñas.
-- Configura SMTP propio; el servicio de correo de prueba de Supabase tiene restricciones. [SMTP](https://supabase.com/docs/guides/auth/auth-smtp).
+- Para recuperación y cambio de correo, configura SMTP propio y `AUTH_EMAIL_ENABLED=true`; mientras tanto estas operaciones devuelven un aviso explícito de indisponibilidad. [SMTP](https://supabase.com/docs/guides/auth/auth-smtp).
 - En URL Configuration establece Site URL y permite exactamente las rutas `/auth/confirm/` y `/auth/callback/` del origen local y del dominio de producción. Usa `127.0.0.1` en local para coincidir con `APP_URL` y las cookies.
 
 En Email Templates sustituye el enlace de cada plantilla:

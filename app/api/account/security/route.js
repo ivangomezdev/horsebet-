@@ -47,6 +47,11 @@ export async function POST(request) {
       });
     }
     if (input.action === "email") {
+      if (!authConfig().emailEnabled)
+        throw new ApiError(
+          "El cambio de correo estará disponible cuando se habilite el envío de correos.",
+          503,
+        );
       const { error } = await client.auth.updateUser(
         { email: input.email },
         { emailRedirectTo: `${authConfig().origin}/auth/confirm/` },
