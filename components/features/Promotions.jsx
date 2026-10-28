@@ -140,7 +140,7 @@ export default function Promotions({ onAction, onHome }) {
           <h3>{selected.subtitle}</h3>
           <p>
             {selected.category} · {selected.status}. Esta es una promoción
-            ilustrativa de la demo HorseBet.
+            ilustrativa de HorseBet.
           </p>
           {selected.code ? (
             <form
@@ -149,8 +149,8 @@ export default function Promotions({ onAction, onHome }) {
                 event.preventDefault();
                 setMessage(
                   code.trim().toUpperCase() === "HORSEBET"
-                    ? "Código de demostración reconocido. No se ha añadido saldo real."
-                    : "Código no reconocido. Prueba HORSEBET para ver la demo.",
+                    ? "Código de ejemplo reconocido. No se ha añadido saldo real."
+                    : "Código no reconocido. Prueba el código de ejemplo HORSEBET.",
                 );
               }}
             >
@@ -165,7 +165,7 @@ export default function Promotions({ onAction, onHome }) {
                 />
               </label>
               <button className="button button--primary" type="submit">
-                Aplicar código demo
+                Aplicar código
               </button>
               <p role="status">{message}</p>
             </form>

@@ -920,29 +920,60 @@ h2 {
 }
 .sport-card {
   position: relative;
-  aspect-ratio: 0.85;
-  background: radial-gradient(ellipse at 60% 0, #126187, #193346 60%, #1d2631);
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 0.76;
+  background:
+    radial-gradient(
+      96.43% 104.72% at 50.25% -11.69%,
+      #01a4ffb8 0%,
+      #01a4ff80 15.28%,
+      #01a4ff59 32.99%,
+      #01a4ff30 60.27%,
+      #01a4ff08
+    ),
+    #e2e8f40a;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 36px 10px 26px;
+  padding: 32px 12px 24px;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
 }
 .sport-card:hover {
   transform: translateY(-4px);
   background-color: #2b3d4d;
 }
-.sport-card > svg {
+.sport-card__icon,
+.sport-card__watermark {
+  display: block;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: var(--sport-card-icon) center / contain no-repeat;
+  -webkit-mask: var(--sport-card-icon) center / contain no-repeat;
+}
+.sport-card__icon {
   width: 56px;
   height: 56px;
-  margin-top: 6px;
-  color: #daeff7;
-  stroke-width: 1.4;
 }
-.sport-card .object-art {
-  width: 90px;
-  max-width: 90%;
+.sport-card__watermark {
+  position: absolute;
+  z-index: -1;
+  width: 120px;
+  height: 120px;
+  top: -24px;
+  left: calc(50% - 60px);
+  color: #13181e;
+  opacity: 0.16;
+}
+.sport-card:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 .sport-card strong {
   text-transform: uppercase;
@@ -1861,12 +1892,9 @@ h2 {
     aspect-ratio: 0.83;
     padding: 25px 6px 15px;
   }
-  .sport-card > svg {
+  .sport-card__icon {
     width: 38px;
     height: 38px;
-  }
-  .sport-card .object-art {
-    width: 58px;
   }
   .sport-card strong {
     font-size: 10px;

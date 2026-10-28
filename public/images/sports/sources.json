@@ -593,5 +593,35 @@
       "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2550020447680991232.png",
       "local": "/images/sports/teams/2550020447680991232.png"
     }
-  ]
+  ],
+  "topSports": {
+    "reference": "https://betfury.com/es",
+    "retrieved": "2026-10-28",
+    "icons": [
+      {
+        "src": "https://betfury.com/icons/tennis.svg",
+        "local": "/images/sports/top/tennis.svg"
+      },
+      {
+        "src": "https://betfury.com/icons/baseball.svg",
+        "local": "/images/sports/top/baseball.svg"
+      },
+      {
+        "src": "https://betfury.com/icons/fifa.svg",
+        "local": "/images/sports/top/fifa.svg"
+      },
+      {
+        "src": "https://betfury.com/icons/soccer.svg",
+        "local": "/images/sports/top/soccer.svg"
+      },
+      {
+        "src": "https://betfury.com/icons/basketball.svg",
+        "local": "/images/sports/top/basketball.svg"
+      },
+      {
+        "src": "https://betfury.com/icons/nba-2k.svg",
+        "local": "/images/sports/top/nba-2k.svg"
+      }
+    ]
+  }
 }

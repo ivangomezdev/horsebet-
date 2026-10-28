@@ -95,7 +95,7 @@ export function FeatureDialog({ title, children, onClose, className = "" }) {
       >
         <X size={20} />
       </button>
-      <div className="feature-dialog__eyebrow">HORSEBET · DEMO</div>
+      <div className="feature-dialog__eyebrow">HORSEBET</div>
       <h2 id={id}>{title}</h2>
       {children}
     </dialog>

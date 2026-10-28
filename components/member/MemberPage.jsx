@@ -384,7 +384,7 @@ export default function MemberPage({ section, onSupport }) {
                       "."}
                 </p>
                 <p>
-                  Las rondas con fichas de demostración no generan puntos de
+                  Las rondas con fichas virtuales no generan puntos de
                   nivel.
                 </p>
                 <Link href="/es/vip-club/">Explorar Club VIP</Link>

@@ -17,7 +17,7 @@ export default function Referrals({ onAction, onHome }) {
   const [referrals, setReferrals] = useState(5);
   const [link, setLink] = useState("");
   const invite = () => {
-    setLink(`${window.location.origin}/es/?ref=HORSEBET-DEMO`);
+    setLink(`${window.location.origin}/es/?ref=HORSEBET`);
     setCopied(false);
     setCopyError(false);
     setInviteOpen(true);
@@ -196,11 +196,11 @@ export default function Referrals({ onAction, onHome }) {
           items={[
             [
               "¿Cómo invito a mis amigos?",
-              "Pulsa «Invitar a amigos» para obtener un enlace de demostración. Puedes copiarlo y explorar su presentación; no se registra ninguna cuenta de referido.",
+              "Pulsa «Invitar a amigos» para obtener un enlace de ejemplo. Puedes copiarlo y explorar su presentación; no se registra ninguna cuenta de referido.",
             ],
             [
               "¿Cómo funciona el bonus de referido?",
-              "La página presenta las recompensas por etapas del diseño de referencia. Esta demostración no genera premios ni comisiones.",
+              "La página presenta las recompensas por etapas del diseño de referencia. Este enlace no genera premios ni comisiones.",
             ],
             [
               "¿Puedo compartir mi comisión con mis amigos?",
@@ -225,7 +225,7 @@ export default function Referrals({ onAction, onHome }) {
         >
           <RewardArt index={4} className="feature-dialog__reward" />
           <p>
-            Comparte la experiencia HorseBet con este enlace de demostración.
+            Comparte la experiencia HorseBet con este enlace de ejemplo.
           </p>
           <label className="invite-link">
             Tu enlace

@@ -131,7 +131,7 @@ export default function CryptoEarn({ onAction, onHome }) {
           ))}
         </CryptoRail>
         <p className="crypto-demo-note">
-          Tasas, cotizaciones y productos ilustrativos para esta demo.
+          Tasas, cotizaciones y productos ilustrativos.
         </p>
         <section className="crypto-swap">
           <div className="crypto-swap__body">
@@ -238,7 +238,7 @@ export default function CryptoEarn({ onAction, onHome }) {
             ],
             [
               "¿Puedo conectar una wallet o depositar?",
-              "Esta demo no conecta wallets ni permite depósitos, inversiones, operaciones o retiradas.",
+              "Esta sección no conecta wallets ni permite depósitos, inversiones, operaciones o retiradas.",
             ],
             [
               "¿Cómo funciona la vista previa de NFT?",
@@ -262,7 +262,7 @@ export default function CryptoEarn({ onAction, onHome }) {
               </h3>
               <p>
                 Vista de mercado ilustrativa. Los precios son estáticos y esta
-                demo no ejecuta operaciones.
+                sección no ejecuta operaciones.
               </p>
               <button
                 className="button button--secondary"

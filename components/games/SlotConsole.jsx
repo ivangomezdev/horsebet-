@@ -36,7 +36,7 @@ export default function SlotConsole({
     >
       <div className="slot-console__main">
         <div className="slot-console__balance">
-          <span>SALDO DEMO</span>
+          <span>SALDO EN FICHAS</span>
           <strong>{wallet.ready ? formatCredits(wallet.balance) : "—"}</strong>
           <small>FICHAS</small>
         </div>
@@ -66,7 +66,7 @@ export default function SlotConsole({
             {preview ? "RETORNO DE VISTA PREVIA" : "RETORNO DE LA RONDA"}
           </span>
           <strong>{formatCredits(total)}</strong>
-          <small>{preview ? "SIN MODIFICAR TU SALDO" : "FICHAS DEMO"}</small>
+          <small>{preview ? "SIN MODIFICAR TU SALDO" : "FICHAS VIRTUALES"}</small>
         </div>
       </div>
       {error && (
@@ -77,7 +77,7 @@ export default function SlotConsole({
       <details className="slot-console__settings">
         <summary>
           <Settings2 size={15} /> Opciones del juego{" "}
-          <span>{preview ? "VISTA PREVIA" : "MODO DEMO"}</span>
+          <span>{preview ? "VISTA PREVIA" : "FICHAS VIRTUALES"}</span>
         </summary>
         <div className="slot-console__tools">
           <button onClick={onTable} aria-expanded={table}>
@@ -95,10 +95,10 @@ export default function SlotConsole({
           <button
             onClick={wallet.reset}
             disabled={!wallet.ready || locked}
-            aria-label="Reponer 10,000 fichas demo"
+            aria-label="Reponer 10,000 fichas virtuales"
           >
             <RotateCcw size={16} />
-            Reponer fichas demo
+            Reponer fichas virtuales
           </button>
         </div>
         <p>

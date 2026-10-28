@@ -142,11 +142,11 @@ export default function Missions({ onAction, onHome }) {
             </div>
           </div>
           <p>
-            Activa esta misión para probar su seguimiento. La demo no registra
+            Activa esta misión para probar su seguimiento. El seguimiento local no registra
             apuestas ni entrega premios reales.
           </p>
           <div className="mission-detail__progress">
-            <span>Progreso de demostración</span>
+            <span>Progreso de la misión</span>
             <b>0%</b>
             <progress value="0" max="100" />
           </div>
@@ -155,8 +155,8 @@ export default function Missions({ onAction, onHome }) {
             onClick={() => toggle(selected.id)}
           >
             {active.includes(selected.id)
-              ? "Cancelar misión demo"
-              : "Activar misión demo"}
+              ? "Cancelar misión"
+              : "Activar misión"}
           </button>
         </FeatureDialog>
       )}

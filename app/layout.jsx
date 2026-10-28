@@ -16,9 +16,9 @@ import { MemberProvider } from "../components/member/MemberProvider";
 import { AuthProvider } from "../components/auth/AuthProvider";
 
 export const metadata = {
-  title: "HorseBet — Casino & Deportes | Demo de diseño",
+  title: "HorseBet — Casino & Deportes",
   description:
-    "Recreación visual de HorseBet con ilustraciones originales. Demostración de interfaz sin apuestas reales.",
+    "Casino HorseBet: slots, juegos originales y deportes. Juegos con fichas virtuales sin valor monetario.",
   robots: { index: false, follow: false },
 };
 

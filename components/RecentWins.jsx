@@ -8,7 +8,7 @@ export default function RecentWins({ onPlay }) {
   return (
     <section
       className={`wins-ticker ${paused ? "wins-ticker--paused" : ""}`}
-      aria-label="Ganancias ficticias de demostración"
+      aria-label="Actividad de jugadores ficticios"
     >
       <div className="section-heading">
         <h2>Principales victorias recientes</h2>

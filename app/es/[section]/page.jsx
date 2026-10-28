@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const { section } = await params;
   return {
     title: `${featureRoutes[section] || accountRoutes[section] || memberRoutes[section] || "HorseBet"} — HorseBet`,
-    description: `Descubre ${featureRoutes[section] || "HorseBet"} en esta experiencia de demostración.`,
+    description: `Descubre ${featureRoutes[section] || "HorseBet"} en HorseBet.`,
   };
 }
 export default async function FeaturePage({ params }) {

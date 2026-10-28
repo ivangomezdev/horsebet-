@@ -20,7 +20,7 @@ export default function SlotWin({ amount, ratio, preview, visual }) {
     <div
       className={`slot-win slot-win--${visual.weather} ${ratio > 1 ? "slot-win--profit" : ""}`}
       role="status"
-      aria-label={`Retorno ${formatCredits(amount)} fichas demo`}
+      aria-label={`Retorno ${formatCredits(amount)} fichas virtuales`}
     >
       {ratio > 1 && (
         <div className="slot-win__burst" aria-hidden="true">
@@ -46,7 +46,7 @@ export default function SlotWin({ amount, ratio, preview, visual }) {
               : "RETORNO"}
       </span>
       <strong aria-hidden="true">{formatCredits(count)}</strong>
-      <small>FICHAS DEMO {preview ? "· VISTA PREVIA" : ""}</small>
+      <small>FICHAS VIRTUALES {preview ? "· VISTA PREVIA" : ""}</small>
     </div>
   );
 }

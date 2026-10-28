@@ -255,7 +255,7 @@ export function Footer({ onAction, sports = false }) {
             "HorseBet. Solo para mayores de 18 años. Juega con responsabilidad."
           ) : (
             <>
-              HorseBet es un proyecto de demostración con imágenes generadas con
+              HorseBet incluye ilustraciones originales creadas con
               IA y recursos con licencia de reutilización. Esta versión no
               permite apuestas, depósitos ni pagos reales. Los importes y
               eventos son ilustrativos.
@@ -264,9 +264,7 @@ export function Footer({ onAction, sports = false }) {
         </p>
       </div>
       <div className="footer__copyright">
-        <span>
-          {sports ? "© 2026 · HorseBet" : "© 2026 · Demo de diseño HorseBet"}
-        </span>
+        <span>© 2026 · HorseBet</span>
         <button onClick={() => onAction("Juego responsable")}>
           Juega responsablemente
         </button>

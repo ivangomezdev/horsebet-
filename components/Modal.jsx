@@ -57,7 +57,7 @@ export default function Modal({ modal, onClose }) {
             </div>
             <h2 id="modal-title">{modal.game.title}</h2>
             <p>
-              Descubre el diseño del juego en modo demostración. Sin saldo,
+              Explora la vista previa del juego. Sin saldo,
               premios ni apuestas reales.
             </p>
             <div
@@ -83,7 +83,7 @@ export default function Modal({ modal, onClose }) {
               onClick={() => setRevealed(!revealed)}
             >
               {revealed ? <RotateCcw size={17} /> : <Play size={17} />}{" "}
-              {revealed ? "Reiniciar vista previa" : "Ver animación demo"}
+              {revealed ? "Reiniciar vista previa" : "Ver animación"}
             </button>
           </div>
         </>
@@ -98,9 +98,9 @@ export default function Modal({ modal, onClose }) {
         </>
       ) : (
         <>
-          <div className="modal__label">HORSEBET · DEMO</div>
+          <div className="modal__label">HORSEBET</div>
           <h2 id="modal-title">{modal.type}</h2>
-          {(content || ["Explora esta experiencia de demostración."]).map(
+          {(content || ["Explora HorseBet."]).map(
             (paragraph, i) =>
               i === 0 ? (
                 <h3 key={paragraph}>{paragraph}</h3>

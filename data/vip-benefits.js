@@ -186,6 +186,6 @@ export const superVipBenefits = [
       "La oferta debe indicar el periodo, los juegos incluidos, la base de cálculo y el límite de la recompensa.",
     ],
     access:
-      "Consulta las condiciones del impulsor y su periodo de vigencia en tu gabinete. Las rondas demo no generan rakeback real.",
+      "Consulta las condiciones del impulsor y su periodo de vigencia en tu gabinete. Las rondas con fichas virtuales no generan rakeback real.",
   },
 ];

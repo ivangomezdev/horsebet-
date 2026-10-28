@@ -69,7 +69,7 @@ export default function VipClub({ onAction, onHome }) {
                 {progress.nextLevel === null
                   ? "Nivel máximo alcanzado"
                   : `${progress.remaining} puntos para el nivel ${progress.nextLevel}`}
-                . Las rondas demo no suman puntos.
+                . Las rondas con fichas virtuales no suman puntos.
               </p>
               <div className="member-progress">
                 <i style={{ width: progress.percent + "%" }} />
@@ -193,7 +193,7 @@ export default function VipClub({ onAction, onHome }) {
                   ))}
                 </tbody>
               </table>
-              <small>Niveles y beneficios ilustrativos de la demo.</small>
+              <small>Niveles y beneficios ilustrativos.</small>
             </div>
           )}
         </section>
@@ -266,7 +266,7 @@ export default function VipClub({ onAction, onHome }) {
           items={[
             [
               "¿Por qué hacerme VIP en HorseBet?",
-              "El club organiza beneficios y atención por niveles. En esta demo puedes explorar todas sus secciones sin una cuenta real.",
+              "El club organiza beneficios y atención por niveles. Puedes explorar las secciones del club sin iniciar sesión.",
             ],
             [
               "¿Cómo se desbloquea el Club VIP?",
@@ -274,7 +274,7 @@ export default function VipClub({ onAction, onHome }) {
             ],
             [
               "¿Qué es un gestor VIP?",
-              "Es un punto de atención personal para los miembros del club. Los botones de contacto de esta demo abren información local.",
+              "Es un punto de atención personal para los miembros del club. Los botones de contacto abren información local.",
             ],
             [
               "¿Cuál es la diferencia entre VIP y Super VIP?",
@@ -286,7 +286,7 @@ export default function VipClub({ onAction, onHome }) {
             ],
             [
               "¿Los bonus mostrados son reales?",
-              "No. Los importes y condiciones pertenecen a una demostración de interfaz.",
+              "No. Los importes y condiciones pertenecen a una vista previa de los beneficios.",
             ],
           ]}
         />

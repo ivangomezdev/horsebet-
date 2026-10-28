@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const { game } = await params;
   return {
     title: `${playableGames[game]?.title || "Originals"} — HorseBet Originals`,
-    description: "Juega con fichas de demostración. Sin dinero real.",
+    description: "Juega con fichas virtuales. Sin dinero real.",
   };
 }
 export default async function GamePage({ params }) {

@@ -29,7 +29,7 @@ export default function VipBenefitDialog({ benefit, onClose }) {
         <p>{benefit.access}</p>
       </div>
       <p className="vip-benefit-dialog__note">
-        Vista previa del club. Las recompensas de esta demo no se acreditan como
+        Vista previa del club. Las recompensas ilustrativas no se acreditan como
         saldo real.
       </p>
       <button

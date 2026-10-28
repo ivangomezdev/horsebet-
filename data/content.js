@@ -52,12 +52,12 @@ export const originals = [
   },
 ];
 export const sports = [
-  "Tenis",
-  "Béisbol",
-  "Esoccer",
-  "Fútbol",
-  "Baloncesto",
-  "Ebásquetbol",
+  { id: "tennis", label: "Tenis", icon: "tennis" },
+  { id: "baseball", label: "Béisbol", icon: "baseball" },
+  { id: "esoccer", label: "eSoccer", icon: "fifa" },
+  { id: "football", label: "Fútbol", icon: "soccer" },
+  { id: "basketball", label: "Baloncesto", icon: "basketball" },
+  { id: "ebasketball", label: "eBasketball", icon: "nba-2k" },
 ];
 export const promotions = [
   {
@@ -87,7 +87,7 @@ export const information = {
     "Más motivos para jugar",
     "Bono de bienvenida de hasta el 590 % + 225 tiradas gratis.",
     "Birthday 007: descubre la promoción especial del aniversario.",
-    "Las promociones se muestran como parte de esta demostración visual.",
+    "Las promociones mostradas son ilustrativas.",
   ],
   "Club VIP": [
     "Tu experiencia, a otro nivel",
@@ -97,7 +97,7 @@ export const information = {
   "Cripto y Gana": [
     "Todo tu universo cripto",
     "Explora staking, intercambio y recompensas en una experiencia unificada.",
-    "Esta demostración no conecta billeteras ni realiza transacciones.",
+    "Esta sección no conecta billeteras ni realiza transacciones.",
   ],
   Torneos: [
     "La emoción de competir",
@@ -118,7 +118,7 @@ export const information = {
   ],
   Ayuda: [
     "Estamos para ayudarte",
-    "¿Cómo funciona esta página? Es una demostración visual e interactiva.",
+    "Explora los juegos, las promociones y tu cuenta desde el menú principal.",
     "¿Puedo apostar? No. No hay depósitos, pagos ni apuestas reales.",
     "¿Se guardan mis datos? Solo se guardan favoritos y un alias en este navegador.",
   ],

@@ -170,7 +170,7 @@ export default function SupportChat({ open, onClose }) {
       </div>
       {!connected && (
         <p className="support-chat__local">
-          Demostración local. Los mensajes todavía no se envían a un agente.
+          Chat local. Los mensajes todavía no se envían a un agente.
         </p>
       )}
       <div

@@ -380,7 +380,7 @@ export default function BonusSlotGame({ gameId, wallet, sound }) {
           );
         session.current = null;
         setFeature(null);
-        setError("La ronda no pudo completarse; se devolvió la apuesta demo.");
+        setError("La ronda no pudo completarse; se devolvió la apuesta en fichas.");
       }
     } finally {
       if (active.current) {
@@ -451,7 +451,7 @@ export default function BonusSlotGame({ gameId, wallet, sound }) {
         </div>
         {def.progressive && (
           <p className="bonus-slot__meter">
-            GRAND DEMO LOCAL{" "}
+            GRAND LOCAL{" "}
             <strong>
               {formatCredits(Math.floor((meter * stakeValue) / def.maxCoins))}
             </strong>
@@ -608,7 +608,7 @@ export default function BonusSlotGame({ gameId, wallet, sound }) {
           <div className="slot-cabinet__base">
             <span>{theme.featureLabel}</span>
             <span>HORSEBET</span>
-            <span>{preview ? "VISTA PREVIA" : "DEMO"}</span>
+            <span>{preview ? "VISTA PREVIA" : "FICHAS VIRTUALES"}</span>
           </div>
           {notice && (
             <div className="bonus-slot__celebration" role="status">

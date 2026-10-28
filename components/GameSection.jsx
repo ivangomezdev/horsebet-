@@ -11,7 +11,7 @@ export function GameCard({ game, onPlay, favorite, onFavorite }) {
     >
       <button
         className="game-card__play"
-        aria-label={`${playablePath(game.id) ? "Jugar" : "Ver demo de"} ${game.title}`}
+        aria-label={`${playablePath(game.id) ? "Jugar" : "Ver juego"} ${game.title}`}
         onClick={() => onPlay(game)}
       >
         <GameArt game={game} />
@@ -30,7 +30,7 @@ export function GameCard({ game, onPlay, favorite, onFavorite }) {
           <span>
             <Play fill="currentColor" size={25} />
           </span>
-          <b>Jugar demo</b>
+          <b>Jugar</b>
         </span>
       </button>
       <button

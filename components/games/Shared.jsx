@@ -33,7 +33,7 @@ export function BetControl({ value, onChange, disabled, balance }) {
   return (
     <div className="game-bet">
       <label htmlFor="demo-stake">
-        Apuesta <span>FICHAS DEMO</span>
+        Apuesta <span>FICHAS VIRTUALES</span>
       </label>
       <div className="game-bet__input">
         <Coins size={17} />

@@ -96,7 +96,7 @@ export default function GameStudio({ gameId }) {
         </Link>
         <div className="originals-room__demo">
           <span />
-          MODO DEMOSTRACIÓN · SIN DINERO REAL
+          FICHAS VIRTUALES · SIN DINERO REAL
         </div>
       </div>
       <header className="originals-heading">
@@ -112,15 +112,15 @@ export default function GameStudio({ gameId }) {
           <div className="demo-wallet">
             <span>
               <Coins size={15} />
-              Tus fichas demo
+              Tus fichas virtuales
             </span>
             <div>
               <strong>{formatCredits(wallet.balance)}</strong>
               <button
                 onClick={wallet.reset}
                 disabled={!wallet.ready || Boolean(wallet.pending)}
-                aria-label="Reponer 10,000 fichas demo"
-                title="Reinicia las fichas y el historial de esta demo"
+                aria-label="Reponer 10,000 fichas virtuales"
+                title="Reinicia las fichas y el historial de esta sesión"
               >
                 <RotateCcw size={17} />
               </button>
@@ -170,7 +170,7 @@ export default function GameStudio({ gameId }) {
           <p>
             Estas fichas no tienen valor monetario. Los resultados se generan
             localmente con la aleatoriedad del navegador. Las rondas
-            interrumpidas se reembolsan al volver a la demo. El saldo de tu
+            interrumpidas se reembolsan al volver al juego. El saldo de tu
             cuenta permanece separado.
           </p>
         </section>
@@ -178,7 +178,7 @@ export default function GameStudio({ gameId }) {
       <section className="originals-history">
         <div className="originals-history__heading">
           <h2>Tus últimas rondas</h2>
-          <span>SOLO ESTA DEMO</span>
+          <span>ESTA SESIÓN</span>
         </div>
         {wallet.history.length ? (
           <div className="originals-history__scroll">

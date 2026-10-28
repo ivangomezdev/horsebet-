@@ -124,11 +124,11 @@ export const missions = [
 export const missionFaqs = [
   [
     "¿Cómo puedo participar en las Misiones?",
-    "Abre una tarjeta para ver sus condiciones y activa la misión en modo demo. Su estado se guarda en este navegador.",
+    "Abre una tarjeta para ver sus condiciones y activa el seguimiento local de la misión. Su estado se guarda en este navegador.",
   ],
   [
     "¿Puedo activar varias Misiones a la vez?",
-    "Sí, puedes explorar y activar varias misiones de demostración. Usa el filtro «En curso» para encontrarlas.",
+    "Sí, puedes explorar y activar varias misiones de ejemplo. Usa el filtro «En curso» para encontrarlas.",
   ],
   [
     "¿Qué pasa si no completo la misión antes de que termine?",
@@ -140,7 +140,7 @@ export const missionFaqs = [
   ],
   [
     "¿Puedo cancelar una misión en curso?",
-    "Sí. Abre una misión activa y pulsa «Cancelar misión demo».",
+    "Sí. Abre una misión activa y pulsa «Cancelar misión».",
   ],
   [
     "¿Qué tipos de misiones tengo disponibles?",

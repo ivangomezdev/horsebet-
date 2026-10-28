@@ -152,7 +152,7 @@ export function CasinoAbout({ onHome }) {
             Las filas de juegos se pueden deslizar, el buscador está siempre a
             mano y tus favoritos se guardan en este navegador.
           </p>
-          <h3>Sobre esta demostración</h3>
+          <h3>Sobre los juegos</h3>
           <p>
             Las promociones, las victorias y los juegos son ejemplos visuales.
             No hay apuestas, pagos, crupieres conectados ni premios reales.

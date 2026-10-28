@@ -26,7 +26,7 @@ const families = {
     label: "HOLD & SPIN",
     description: "Atrapa 6 gemas, bloquéalas y descubre las nuevas tiradas.",
     rules:
-      "25 líneas. Seis o más gemas activan Hold & Spin: quedan bloqueadas y recibes 3 nuevas tiradas. Cada gema nueva reinicia el contador. Los multiplicadores de ojo se suman y multiplican el total recogido. Completar las 15 casillas añade el GRAND demo. Los valores se muestran en fichas según la apuesta (25 unidades).",
+      "25 líneas. Seis o más gemas activan Hold & Spin: quedan bloqueadas y recibes 3 nuevas tiradas. Cada gema nueva reinicia el contador. Los multiplicadores de ojo se suman y multiplican el total recogido. Completar las 15 casillas añade el GRAND local. Los valores se muestran en fichas según la apuesta (25 unidades).",
   },
   cascade: {
     definition: TEMPLE_OF_GOLD,
@@ -34,7 +34,7 @@ const families = {
     description:
       "20 símbolos, cascadas animadas y una escalera de multiplicadores.",
     rules:
-      "Ocho o más símbolos iguales en cualquier posición pagan. Desaparecen y caen nuevos símbolos. Hasta 5 cascadas con multiplicadores ×1, ×2, ×3, ×5 y ×8, dentro de una sola apuesta. Seis ídolos en el tablero inicial activan el GRAND demo. La tabla expresa multiplicadores de la apuesta total.",
+      "Ocho o más símbolos iguales en cualquier posición pagan. Desaparecen y caen nuevos símbolos. Hasta 5 cascadas con multiplicadores ×1, ×2, ×3, ×5 y ×8, dentro de una sola apuesta. Seis ídolos en el tablero inicial activan el GRAND local. La tabla expresa multiplicadores de la apuesta total.",
   },
   wheel: {
     definition: WONDER_WHEEL,
@@ -123,7 +123,7 @@ const entries = [
   })),
 ];
 const ending =
-  " Todos los bonus pertenecen a una sola ronda demo. El saldo se liquida al completarla; salir o recargar devuelve la apuesta y descarta esa ronda. El GRAND es local a esta sesión, sin dinero real. La vista previa no afecta al saldo ni al historial.";
+  " Todos los bonus pertenecen a una sola ronda con fichas virtuales. El saldo se liquida al completarla; salir o recargar devuelve la apuesta y descarta esa ronda. El GRAND es local a esta sesión, sin dinero real. La vista previa no afecta al saldo ni al historial.";
 export const bonusSlots = Object.fromEntries(
   entries.map((theme) => {
     const family = families[theme.family];

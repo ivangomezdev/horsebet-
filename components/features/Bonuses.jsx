@@ -131,7 +131,7 @@ export default function Bonuses({ onAction, onHome }) {
           <p>{selected.description}</p>
           <p>
             Esta tarjeta muestra un beneficio de ejemplo. Los bonos no se abonan
-            ni se pueden retirar en esta demostración.
+            ni se pueden retirar por el momento.
           </p>
           <button
             className="button button--primary"
