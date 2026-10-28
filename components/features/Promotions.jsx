@@ -150,7 +150,7 @@ export default function Promotions({ onAction, onHome }) {
                 setMessage(
                   code.trim().toUpperCase() === "HORSEBET"
                     ? "Código de ejemplo reconocido. No se ha añadido saldo real."
-                    : "Código no reconocido. Prueba el código de ejemplo HORSEBET.",
+                    : "Código no reconocido. Código disponible: HORSEBET.",
                 );
               }}
             >
@@ -159,7 +159,7 @@ export default function Promotions({ onAction, onHome }) {
                 <input
                   value={code}
                   onChange={(event) => setCode(event.target.value)}
-                  placeholder="Prueba HORSEBET"
+                  placeholder="Introduce tu código"
                   required
                   maxLength={30}
                 />

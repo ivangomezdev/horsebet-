@@ -21,6 +21,8 @@ import PlinkoGame from "./PlinkoGame";
 import CoinGame from "./CoinGame";
 import SlotGame from "./SlotGame";
 import BonusSlotGame from "./BonusSlotGame";
+import { useAuth } from "../auth/AuthProvider";
+import { LockKeyhole } from "lucide-react";
 
 const components = {
   dice: DiceGame,
@@ -29,6 +31,51 @@ const components = {
   coin: CoinGame,
 };
 export default function GameStudio({ gameId }) {
+  const { user, loading, openAuth } = useAuth();
+  if (loading || !user?.onboardingCompleted) {
+    return (
+      <section className="content game-access" aria-busy={loading}>
+        <Link href="/es/casino/" className="originals-room__back">
+          <ArrowLeft size={17} />
+          Casino
+        </Link>
+        <div className="game-access__panel">
+          <LockKeyhole size={36} aria-hidden="true" />
+          <span className="game-access__eyebrow">HORSEBET ORIGINALS</span>
+          <h1>{playableGames[gameId].title}</h1>
+          <p role="status">
+            {loading
+              ? "Comprobando tu sesión…"
+              : user
+                ? "Completa tu perfil para acceder a los juegos."
+                : "Debes estar registrado para realizar apuestas."}
+          </p>
+          {!loading && (
+            <div className="game-access__actions">
+              <button
+                className="button button--primary"
+                onClick={() => openAuth(user ? "complete" : "register")}
+              >
+                {user ? "Completar perfil" : "Regístrate"}
+              </button>
+              {!user && (
+                <button
+                  className="button button--secondary"
+                  onClick={() => openAuth("login")}
+                >
+                  Iniciar sesión
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
+  return <AuthenticatedGame key={`${user.id}:${gameId}`} gameId={gameId} />;
+}
+
+function AuthenticatedGame({ gameId }) {
   const game = playableGames[gameId],
     Game =
       game.kind === "bonus-slot"
@@ -223,7 +270,7 @@ export default function GameStudio({ gameId }) {
           <div className="originals-history__empty">
             <CircleDot size={20} />
             <span>Tu primera ronda empieza aquí.</span>
-            <small>Juega con fichas de prueba y consulta tus resultados.</small>
+            <small>Consulta aquí los resultados de tus rondas.</small>
           </div>
         )}
       </section>

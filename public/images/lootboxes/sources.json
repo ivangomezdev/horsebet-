@@ -1,0 +1,31 @@
+{
+  "reference": "https://betfury.com/es/crypto-and-earn",
+  "retrieved": "2026-10-28",
+  "note": "Reference assets used at the user’s explicit request. Third-party artwork; no ownership or open-source license is claimed.",
+  "assets": [
+    {
+      "source": "https://betfury.com/images/common/prize/bnb.png?v=1",
+      "local": "/images/lootboxes/bnb.png"
+    },
+    {
+      "source": "https://betfury.com/images/common/prize/eth.png?v=1",
+      "local": "/images/lootboxes/eth.png"
+    },
+    {
+      "source": "https://betfury.com/images/common/prize/trx.png?v=1",
+      "local": "/images/lootboxes/trx.png"
+    },
+    {
+      "source": "https://betfury.com/images/common/prize/usdt.png?v=1",
+      "local": "/images/lootboxes/usdt.png"
+    },
+    {
+      "source": "https://betfury.com/images/common/prize/btc.png?v=1",
+      "local": "/images/lootboxes/btc.png"
+    },
+    {
+      "source": "https://betfury.com/images/common/prize/free-bet.png?v=1",
+      "local": "/images/lootboxes/free-bet.png"
+    }
+  ]
+}

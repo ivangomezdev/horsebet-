@@ -115,8 +115,8 @@ export function AuthProvider({ children }) {
       );
     }
   }, [pathname, refresh]);
-  const openAuth = useCallback((next) => {
-    setNotice("");
+  const openAuth = useCallback((next, message = "") => {
+    setNotice(message);
     setMode(next);
   }, []);
   const logout = async () => {

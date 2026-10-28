@@ -115,7 +115,7 @@ export default function DiceGame({ wallet, sound }) {
                 ? "TU PRÓXIMO NÚMERO"
                 : result?.payout
                   ? "OBJETIVO ALCANZADO"
-                  : "PRUEBA EN LA SIGUIENTE RONDA"}
+                  : "SIGUIENTE RONDA"}
           </small>
         </div>
         <div

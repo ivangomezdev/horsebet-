@@ -79,8 +79,6 @@ export function WelcomeBonuses({ onAction, title, showHeading = true }) {
   );
 }
 
-export { default as RecentWins } from "./RecentWins";
-
 export function Providers({ onSelect }) {
   return (
     <section className="casino-providers">
@@ -131,7 +129,8 @@ export function CasinoAbout({ onHome }) {
       <p>
         Bienvenido al casino HorseBet. Explora una selección de slots, juegos
         originales y mesas en vivo en un mismo lugar. Descubre las distintas
-        categorías, encuentra tus títulos favoritos y prueba sus vistas previas.
+        categorías, encuentra tus títulos favoritos y consulta su
+        disponibilidad.
       </p>
       {expanded && (
         <div id="casino-more">

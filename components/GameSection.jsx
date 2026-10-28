@@ -1,21 +1,23 @@
 "use client";
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Heart, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart, Play, Clock3 } from "lucide-react";
 import { GameArt } from "./Artwork";
 import { playablePath } from "../data/playable-games";
 
 export function GameCard({ game, onPlay, favorite, onFavorite }) {
+  const available = Boolean(playablePath(game.id));
   return (
     <article
-      className={`game-card ${game.color ? "game-card--original" : ""} ${game.cover ? "game-card--illustrated" : ""}`}
+      className={`game-card ${game.color ? "game-card--original" : ""} ${game.cover ? "game-card--illustrated" : ""} ${available ? "" : "game-card--coming-soon"}`}
     >
       <button
         className="game-card__play"
-        aria-label={`${playablePath(game.id) ? "Jugar" : "Ver juego"} ${game.title}`}
+        aria-label={`${available ? "Jugar" : "Coming soon:"} ${game.title}`}
+        disabled={!available}
         onClick={() => onPlay(game)}
       >
         <GameArt game={game} />
-        {game.badge && (
+        {available && game.badge && (
           <span
             className={`game-card__badge ${game.badge === "CALIENTE" ? "game-card__badge--hot" : ""}`}
           >
@@ -26,12 +28,20 @@ export function GameCard({ game, onPlay, favorite, onFavorite }) {
           <strong>{game.title}</strong>
           <small>{game.provider}</small>
         </span>
-        <span className="game-card__overlay">
-          <span>
-            <Play fill="currentColor" size={25} />
+        {!available && (
+          <span className="game-card__availability">
+            <Clock3 size={16} />
+            Coming soon
           </span>
-          <b>Jugar</b>
-        </span>
+        )}
+        {available && (
+          <span className="game-card__overlay">
+            <span>
+              <Play fill="currentColor" size={25} />
+            </span>
+            <b>Jugar</b>
+          </span>
+        )}
       </button>
       <button
         className={`game-card__favorite ${favorite ? "game-card__favorite--active" : ""}`}

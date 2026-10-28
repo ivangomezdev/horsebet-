@@ -1394,10 +1394,23 @@ summary:focus-visible {
   background:
     radial-gradient(ellipse at center, #53307126, transparent), #1b212b;
 }
-.loot-card > .reward-art {
+.loot-card__art {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 1;
+  object-fit: contain;
+  transition: transform 180ms ease;
+}
+.loot-card:hover .loot-card__art {
+  transform: translateY(-4px);
+}
+.loot-dialog__art {
+  display: block;
+  width: min(260px, 100%);
+  height: auto;
+  margin: 24px auto;
+  object-fit: contain;
 }
 .loot-card h3 {
   font-size: 14px;

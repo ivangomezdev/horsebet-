@@ -7,14 +7,9 @@ import {
   ArrowUpRight,
   LockKeyhole,
 } from "lucide-react";
-import {
-  FeatureHero,
-  RewardArt,
-  FAQ,
-  Breadcrumb,
-  FeatureDialog,
-} from "./Shared";
+import { FeatureHero, FAQ, Breadcrumb, FeatureDialog } from "./Shared";
 import { cryptoCoins } from "../../data/features";
+import { lootboxes } from "../../data/lootboxes";
 
 function Coin({ coin }) {
   return (
@@ -77,7 +72,6 @@ export default function CryptoEarn({ onAction, onHome }) {
   const [swapAmount, setSwapAmount] = useState("0.01");
   const [swapOpen, setSwapOpen] = useState(false);
   const [loot, setLoot] = useState(null);
-  const [revealed, setRevealed] = useState(false);
   const fromCoin = cryptoCoins.find((coin) => coin.symbol === from);
   const toCoin = cryptoCoins.find((coin) => coin.symbol === to);
   const swapValue = (
@@ -201,27 +195,24 @@ export default function CryptoEarn({ onAction, onHome }) {
           title="NFT Lootboxes"
           description="Descubre colecciones, objetos y nuevas sorpresas."
         >
-          {[
-            ["Starter Box", 5, "10"],
-            ["Silver Box", 2, "25"],
-            ["Golden Box", 0, "50"],
-            ["VIP Box", 4, "100"],
-            ["Lucky Box", 1, "250"],
-            ["Mystery Box", 5, "500"],
-          ].map(([name, art, price]) => (
+          {lootboxes.map((box) => (
             <button
               className="loot-card"
-              key={name}
-              onClick={() => {
-                setLoot({ name, art });
-                setRevealed(false);
-              }}
+              key={box.id}
+              onClick={() => setLoot(box)}
             >
-              <RewardArt index={art} />
-              <h3>{name}</h3>
-              <p>{price} USDT</p>
+              <img
+                className="loot-card__art"
+                src={`/images/lootboxes/${box.id}.png`}
+                alt=""
+                width="512"
+                height="512"
+                loading="lazy"
+              />
+              <h3>{box.name}</h3>
+              <p>{box.collection}</p>
               <span>
-                Vista previa <ChevronRight size={14} />
+                Coming soon <ChevronRight size={14} />
               </span>
             </button>
           ))}
@@ -230,7 +221,7 @@ export default function CryptoEarn({ onAction, onHome }) {
           items={[
             [
               "¿Qué puedo hacer en Cripto y Gana?",
-              "Puedes explorar tarjetas de staking, simular una conversión entre monedas y ver colecciones de ejemplo.",
+              "Puedes consultar los planes de staking, calcular una conversión entre monedas y descubrir las próximas colecciones.",
             ],
             [
               "¿Las tasas y precios son actuales?",
@@ -241,8 +232,8 @@ export default function CryptoEarn({ onAction, onHome }) {
               "Esta sección no conecta wallets ni permite depósitos, inversiones, operaciones o retiradas.",
             ],
             [
-              "¿Cómo funciona la vista previa de NFT?",
-              "Las cajas muestran una ilustración original al abrir su vista previa. No se compra, sortea ni entrega ningún activo.",
+              "¿Cuándo estarán disponibles las lootboxes?",
+              "Las colecciones están en preparación. Por ahora puedes consultar sus detalles; todavía no se pueden comprar ni abrir.",
             ],
           ]}
         />
@@ -290,7 +281,7 @@ export default function CryptoEarn({ onAction, onHome }) {
                   />
                 </label>
                 <div className="crypto-estimate" aria-live="polite">
-                  <span>Resultado anual simulado</span>
+                  <span>Estimación anual</span>
                   <strong>
                     {(
                       (Math.max(0, Number(amount) || 0) * selected.rate) /
@@ -312,7 +303,7 @@ export default function CryptoEarn({ onAction, onHome }) {
       )}
       {swapOpen && (
         <FeatureDialog
-          title="Simulador de intercambio"
+          title="Calculadora de intercambio"
           onClose={() => setSwapOpen(false)}
         >
           <p>Compara una conversión con precios de ejemplo.</p>
@@ -373,21 +364,23 @@ export default function CryptoEarn({ onAction, onHome }) {
       )}
       {loot && (
         <FeatureDialog title={loot.name} onClose={() => setLoot(null)}>
-          <RewardArt
-            index={revealed ? 4 : loot.art}
-            className="feature-dialog__reward"
+          <img
+            className="loot-dialog__art"
+            src={`/images/lootboxes/${loot.id}.png`}
+            alt={loot.name}
+            width="512"
+            height="512"
           />
-          <h3>{revealed ? "Colección Horseshoe" : "Descubre la colección"}</h3>
+          <h3>{loot.collection}</h3>
           <p>
-            {revealed
-              ? "Una medalla original HorseBet. Esta es una vista previa fija, sin compra ni premios."
-              : "Explora una ilustración de la colección. No se realiza ninguna transacción."}
+            Próximamente en HorseBet. Esta colección todavía no está disponible
+            para comprar o abrir.
           </p>
           <button
             className="button button--primary"
-            onClick={() => (revealed ? setLoot(null) : setRevealed(true))}
+            onClick={() => setLoot(null)}
           >
-            {revealed ? "Volver a la colección" : "Abrir vista previa"}
+            Volver a las colecciones
           </button>
         </FeatureDialog>
       )}

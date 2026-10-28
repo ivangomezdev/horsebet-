@@ -204,7 +204,7 @@ export default function Referrals({ onAction, onHome }) {
             ],
             [
               "¿Puedo compartir mi comisión con mis amigos?",
-              "El simulador permite comparar un reparto de entre el 0% y el 50% de una comisión ilustrativa.",
+              "La calculadora permite comparar un reparto de entre el 0% y el 50% de una comisión ilustrativa.",
             ],
             [
               "¿Dónde veo mis referidos?",
@@ -224,9 +224,7 @@ export default function Referrals({ onAction, onHome }) {
           onClose={() => setInviteOpen(false)}
         >
           <RewardArt index={4} className="feature-dialog__reward" />
-          <p>
-            Comparte la experiencia HorseBet con este enlace de ejemplo.
-          </p>
+          <p>Comparte la experiencia HorseBet con este enlace de ejemplo.</p>
           <label className="invite-link">
             Tu enlace
             <input

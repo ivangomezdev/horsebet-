@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Zap,
   Gift,
-  Bitcoin,
 } from "lucide-react";
 import { Header, Sidebar, Footer, MobileNav } from "./SiteShell";
 import Hero from "./Hero";
@@ -16,7 +15,7 @@ import GameSection from "./GameSection";
 import CasinoLobby from "./CasinoLobby";
 import FeaturePages from "./FeaturePages";
 import { featurePath } from "../data/features";
-import { GameArt, ObjectArt } from "./Artwork";
+import { ObjectArt } from "./Artwork";
 import Modal from "./Modal";
 import SupportChat from "./SupportChat";
 import { useAuth } from "./auth/AuthProvider";
@@ -28,7 +27,7 @@ import { playablePath } from "../data/playable-games";
 import { bonusSlotCatalog } from "../data/bonus-slots";
 import { SportsPreview } from "./Sports";
 import SportsBook from "./sports/SportsBook";
-import { games, originals } from "../data/content";
+import { originals } from "../data/content";
 
 function readLocal(key, fallback) {
   try {
@@ -135,8 +134,14 @@ export default function CasinoApp({
     });
   const onPlay = (game) => {
     const path = playablePath(game.id);
-    if (path) router.push(path);
-    else setModal({ type: "game", game });
+    if (!path) return;
+    if (!user)
+      return openAuth(
+        "register",
+        "Debes estar registrado para realizar apuestas.",
+      );
+    if (!user.onboardingCompleted) return openAuth("complete");
+    router.push(path);
   };
   const commonGameProps = { onPlay, favorites, onFavorite: toggleFavorite };
   return (
@@ -211,41 +216,6 @@ export default function CasinoApp({
                 </span>
                 <ChevronRight size={20} />
               </button>
-              <section className="winners">
-                <div className="section-heading">
-                  <h2>
-                    <span className="live-dot" /> Últimas grandes ganancias
-                  </h2>
-                  <span className="winners__label">VISTA DE EJEMPLO</span>
-                </div>
-                <div className="winners__rail">
-                  {[...games, ...games.slice(0, 4)].map((game, i) => (
-                    <button
-                      className="winner"
-                      key={`${game.id}-${i}`}
-                      onClick={() => onPlay(game)}
-                    >
-                      <span className="winner__art">
-                        <GameArt game={game} />
-                        <strong>{game.title}</strong>
-                      </span>
-                      <span className="winner__amount">
-                        <Bitcoin size={12} /> MX$
-                        {
-                          [
-                            "82.793",
-                            "20.698",
-                            "69.187",
-                            "31.326",
-                            "41.396",
-                            "165.59K",
-                          ][i % 6]
-                        }
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </section>
               <GameSection
                 title="Slots Top"
                 id="slots"

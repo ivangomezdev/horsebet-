@@ -14,12 +14,8 @@ import {
 } from "lucide-react";
 import CasinoPromotions from "./CasinoPromotions";
 import GameSection, { GameCard } from "./GameSection";
-import {
-  WelcomeBonuses,
-  RecentWins,
-  Providers,
-  CasinoAbout,
-} from "./CasinoExtras";
+import { playablePath } from "../data/playable-games";
+import { WelcomeBonuses, Providers, CasinoAbout } from "./CasinoExtras";
 import {
   casinoGames,
   casinoSlots,
@@ -114,6 +110,8 @@ export default function CasinoLobby({
         ? [...filtered].sort((a, b) => b.title.localeCompare(a.title, "es"))
         : filtered;
   const isLobby = category === "Lobby" && !query.trim() && provider === "Todos";
+  const availableGames = casinoGames.filter((game) => playablePath(game.id));
+  const availableResults = sorted.filter((game) => playablePath(game.id));
   const gameProps = { onPlay, favorites, onFavorite };
   const section = (title, list, target, badge, showAllCard = false) => (
     <GameSection
@@ -181,7 +179,6 @@ export default function CasinoLobby({
           )}
           {section("Lo mejor", featuredGames, "Lo mejor", null, true)}
           <WelcomeBonuses onAction={onAction} />
-          <RecentWins onPlay={onPlay} />
           {section("Casino en vivo", liveGames, "En vivo")}
           <Providers onSelect={selectProvider} />
           {section(
@@ -246,9 +243,13 @@ export default function CasinoLobby({
                 className="casino-results__random"
                 aria-label="Sorpréndeme con un juego"
                 onClick={() =>
-                  onPlay(sorted[Math.floor(Math.random() * sorted.length)])
+                  onPlay(
+                    availableResults[
+                      Math.floor(Math.random() * availableResults.length)
+                    ],
+                  )
                 }
-                disabled={!sorted.length}
+                disabled={!availableResults.length}
               >
                 <Shuffle size={17} />
                 <span>Sorpréndeme</span>
@@ -315,7 +316,7 @@ export default function CasinoLobby({
               <p>
                 {category === "Favoritos"
                   ? "Guarda tus juegos con el corazón de cada tarjeta."
-                  : "Prueba otra búsqueda o cambia los filtros."}
+                  : "Cambia la búsqueda o los filtros."}
               </p>
               <button
                 className="button button--secondary"
@@ -344,7 +345,9 @@ export default function CasinoLobby({
         </button>
         <button
           onClick={() =>
-            onPlay(casinoGames[Math.floor(Math.random() * casinoGames.length)])
+            onPlay(
+              availableGames[Math.floor(Math.random() * availableGames.length)],
+            )
           }
         >
           <Shuffle size={17} /> Elegir un juego al azar

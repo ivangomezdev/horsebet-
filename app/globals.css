@@ -672,6 +672,35 @@ h2 {
 .game-card:hover {
   transform: translateY(-3px);
 }
+.game-card--coming-soon:hover {
+  transform: none;
+}
+.game-card--coming-soon .game-art,
+.game-card--coming-soon .game-card__caption {
+  opacity: 0.38;
+}
+.game-card--coming-soon .game-card__play {
+  cursor: not-allowed;
+}
+.game-card__availability {
+  position: absolute;
+  z-index: 3;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 10px;
+  width: max-content;
+  max-width: 94%;
+  border: 1px solid #ffffff30;
+  border-radius: 6px;
+  background: #111720e8;
+  color: #f2f4f8;
+  font-size: clamp(9px, 1vw, 13px);
+  font-weight: 700;
+}
 .game-card__play {
   width: 100%;
   height: 100%;
