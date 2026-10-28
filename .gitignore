@@ -1,8 +1,10 @@
 node_modules/
 .next/
+.next-horsebet/
 out/
 .env*
 !.env.example
 *.log
 .openai/*.tar.gz
 outputs/
+.vercel/

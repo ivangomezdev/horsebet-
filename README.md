@@ -1,76 +1,50 @@
-# HorseBet · Casino y Deportes
+# HorseBet
 
-Proyecto Next.js con App Router, React y **JSX**, CSS convencional con metodología **BEM**, sin TypeScript y sin Tailwind. Inspirado en la página española de BetFury, con paleta oscura, acentos rojos y recursos gráficos originales generados con ImageGen.
+Next.js App Router + React JSX, CSS BEM, sin TypeScript ni Tailwind. Paleta oscura y roja, mascota equina y arte original. Autenticación y persistencia preparadas con Supabase; despliegue previsto en Vercel.
 
 ## Desarrollo
 
-Requiere Node.js 20.9 o posterior.
+Node.js 22 o posterior:
 
 ```bash
 npm ci
+npm run setup:local
 npm run dev
 ```
 
-Abre http://127.0.0.1:3000/es/. La misma página está disponible en `/`.
+Abre http://127.0.0.1:3000/es/. La interfaz funciona sin credenciales; los formularios de acceso quedan desactivados hasta conectar Supabase. Sigue [la configuración de Supabase, Google y Vercel](docs/auth-and-vercel.md) para activar usuarios, correo y almacenamiento. No compartas `.env.local`.
 
-## Páginas
+## Rutas
 
-| Sección | Ruta |
-| --- | --- |
-| Inicio | `/es/` |
-| Casino | `/es/casino/` |
-| Misiones | `/es/missions/` |
-| Gabinete de bonos | `/es/bonus-cabinet/` |
-| Club VIP | `/es/vip-club/` |
-| Promociones | `/es/promo/` |
-| Referidos | `/es/about-referral-system/` |
-| Cripto y Gana | `/es/crypto-and-earn/` |
+Inicio `/es/`, casino `/es/casino/`, misiones `/es/missions/`, bonos `/es/bonus-cabinet/`, VIP `/es/vip-club/`, promociones `/es/promo/`, referidos `/es/about-referral-system/` y cripto `/es/crypto-and-earn/`.
 
-Las siete secciones también admiten acceso sin el prefijo `/es`. Cada página se exporta como HTML estático y admite recarga directa.
+Cuenta: `/es/account/`, `/es/transactions/`, `/es/game-history/`, `/es/sessions/` y `/es/kyc/`. Las secciones también admiten rutas sin `/es`. Deportes mantiene su vista por hash.
 
-## Producción
+## Producción y pruebas
 
 ```bash
+npm run check:config
+npm test
 npm run build
 npm start
 ```
 
-El build genera una exportación estática en `out/`. Puede alojarse en cualquier servidor estático. `npm start` sirve esa exportación en el puerto 3000; detén antes el servidor de desarrollo si ocupa el puerto.
+Esta versión usa el servidor de Next.js, no una exportación estática. En Vercel selecciona Next.js y conserva la salida por defecto. Las migraciones están en `supabase/migrations/`; las pruebas usan PostgreSQL embebido para comprobar aislamiento, permisos, contabilidad, cifrado, persistencia y revocación de sesiones.
 
 ## Organización
 
-- `app/`: rutas, metadatos y estilos BEM. Los colores, dimensiones y espaciados base están centralizados en variables CSS.
-- `components/`: estructura del sitio, carrusel, tarjetas reutilizables, catálogo, deportes y ventanas accesibles con `dialog` nativo.
-- `components/features/`: seis páginas, con banners, recompensas, preguntas frecuentes y diálogos compartidos en `Shared.jsx`.
-- `data/`: catálogo, misiones, promociones, beneficios y contenido editable separado de la presentación.
-- `public/images/`: ilustraciones originales; atlas reutilizables para juegos, promociones, banners y recompensas.
-- `docs/*image-prompts.md`: prompts exactos utilizados con la herramienta integrada ImageGen.
-
-## Funcionalidad
-
-- Carrusel con navegación manual y rotación automática, pausado al interactuar y compatible con movimiento reducido.
-- Catálogo con búsqueda, categorías, estado vacío y favoritos persistidos en el navegador.
-- Rutas de inicio, casino y seis secciones con Next.js App Router; deportes mantiene su vista por hash.
-- Navegación lateral desplegable y barra inferior en móvil.
-- Perfil local mediante alias; no solicita contraseñas ni se conecta a cuentas reales.
-- Casino con categorías, búsqueda, filtros por proveedor, ordenación, favoritos, juego aleatorio, carruseles y vistas previas.
-- Misiones con filtros, detalle, activación/cancelación y persistencia local.
-- Bonos con selección de paquetes y detalles de recompensas.
-- VIP con pestañas, selector de nivel, comparación de ranks y preguntas frecuentes.
-- Promociones con categorías, estado, paginación y código de prueba `HORSEBET`.
-- Referidos con enlace copiable y calculadora de reparto ilustrativa.
-- Cripto con calculadoras de ejemplo, carruseles y vistas previas de NFT.
-- Diseño adaptable a móvil, tablet y escritorio; foco visible y etiquetas accesibles.
+- `components/auth/`, `lib/auth/`, `app/api/auth/`: formularios y autenticación de servidor.
+- `components/account/`, `lib/account/`, `app/api/account/`: perfil, historiales, sesiones y KYC privado.
+- `components/features/`: secciones promocionales y componentes compartidos.
+- `data/`: catálogos y contenido; `recent-wins.js` contiene 200 resultados ficticios exclusivamente visuales.
+- `app/*.css`: estilos BEM adaptables.
+- `public/images/`: arte original; `public/flags/`: banderas SVG con licencia.
+- `docs/`: configuración y prompts originales de imágenes.
 
 ## Alcance
 
-Esta es una recreación visual independiente. No se conecta a BetFury, no contiene un motor de apuestas ni procesadores de pago, y no permite depósitos ni transacciones. Los importes, promociones y eventos son contenido ilustrativo. El logotipo combina el nombre HorseBet con una cabeza de caballo vectorial original. El banner utiliza una mascota equina 3D generada con ImageGen. Las fuentes Inter y Barlow Condensed se cargan desde Google Fonts con fuentes de sistema como alternativa.
+Hay 21 juegos con fichas demo: Dice, Mines, Plinko, Coin Flip y 17 slots jugables sobre cinco mecánicas MIT: líneas, combinaciones, cascadas, Hold & Spin y ruleta de bonus. Sus reglas y gráficos reutilizados permiten modificaciones bajo licencia MIT. Consulta [reglas, procedencia y funcionamiento](docs/horsebet-games.md). Se abren desde el catálogo y usan fichas separadas de los saldos de cuenta.
 
-## Verificación
+El carrusel de ganancias se reproduce indefinidamente, permite pausar y respeta movimiento reducido. Está identificado como actividad simulada. Perfiles, documentos, saldos e historiales usan la base de datos y no reciben esos resultados ficticios.
 
-- Compilación de producción y exportación estática de todas las rutas.
-- Revisión visual en navegador de escritorio y móvil.
-- Comprobación de búsqueda, favoritos, filtros, navegación, vista previa del juego y categorías deportivas.
-- Verificación de activación/cancelación de misiones, filtros de promociones, código demo, selector VIP, enlace de referido y calculadoras cripto.
-
-Ejecuta `npm run format` para mantener el formato del código.
+Pendientes externos: crear/configurar Supabase, Google y SMTP; conectar proveedores de pagos, juegos, SMS y revisión KYC para operar esos servicios. No hay motor de apuestas, depósitos ni retiros reales. Promociones y calculadoras continúan siendo ilustrativas. El sitio no se conecta a cuentas de BetFury.

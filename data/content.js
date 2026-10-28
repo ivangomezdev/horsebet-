@@ -1,38 +1,12 @@
+import { bonusSlotCatalog } from "./bonus-slots.js";
 export const games = [
-  {
-    id: "aztec",
-    title: "Aztec Magic Bonanza",
-    provider: "BGAMING",
-    art: 0,
-    badge: "TOP",
-  },
-  {
-    id: "diamond",
-    title: "Diamond Strike",
-    provider: "PRAGMATIC PLAY",
-    art: 1,
-    badge: "CALIENTE",
-  },
-  {
-    id: "sugar",
-    title: "Sugar Rush Super Scatter",
-    provider: "PRAGMATIC PLAY",
-    art: 2,
-  },
-  { id: "pepper", title: "Hot Pepper", provider: "PRAGMATIC PLAY", art: 3 },
-  {
-    id: "olympus",
-    title: "Gates of Olympus",
-    provider: "PRAGMATIC PLAY",
-    art: 4,
-  },
-  {
-    id: "sugar1000",
-    title: "Sugar Rush 1000",
-    provider: "PRAGMATIC PLAY",
-    art: 5,
-  },
-];
+  "aztec",
+  "diamond",
+  "sugar",
+  "pepper",
+  "olympus",
+  "sugar1000",
+].map((id) => bonusSlotCatalog.find((game) => game.id === id));
 export const originals = [
   {
     id: "dice",
@@ -41,7 +15,13 @@ export const originals = [
     object: "dice",
     color: "green",
   },
-  { id: "gems", title: "Gems", provider: "HORSEBET", art: 1, color: "purple" },
+  {
+    id: "mines",
+    title: "Mines",
+    provider: "HORSEBET",
+    art: 1,
+    color: "purple",
+  },
   {
     id: "space",
     title: "Space Dice",

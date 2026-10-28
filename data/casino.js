@@ -1,57 +1,6 @@
-import { games, originals } from "./content";
-
-const horseSugar = {
-  id: "horse-sugar",
-  title: "HorseBet Sugar Rush 1000",
-  provider: "PRAGMATIC PLAY",
-  art: 0,
-  atlas: "casino",
-  category: "Slots",
-};
-const horseMerge = {
-  id: "horse-merge",
-  title: "Merge Up Horse",
-  provider: "BGAMING",
-  art: 1,
-  atlas: "casino",
-  badge: "CALIENTE",
-  category: "Slots",
-};
-export const casinoSlots = [
-  ...games.slice(0, 4),
-  horseSugar,
-  games[5],
-  horseMerge,
-  {
-    id: "bass",
-    title: "Big Bass Mission Fishin’",
-    provider: "PRAGMATIC PLAY",
-    art: 2,
-    atlas: "casino",
-  },
-  {
-    id: "joker",
-    title: "Joker’s Jewels Hot",
-    provider: "PRAGMATIC PLAY",
-    art: 3,
-    atlas: "casino",
-  },
-  {
-    id: "fruit",
-    title: "Fruit Party",
-    provider: "PRAGMATIC PLAY",
-    art: 4,
-    atlas: "casino",
-  },
-  {
-    id: "vampy",
-    title: "Vampy Party",
-    provider: "BGAMING",
-    art: 5,
-    atlas: "casino",
-  },
-  { ...games[4], badge: "NUEVO" },
-].map((game) => ({ ...game, category: "Slots" }));
+import { games, originals } from "./content.js";
+import { bonusSlotCatalog } from "./bonus-slots.js";
+export const casinoSlots = bonusSlotCatalog;
 
 export const casinoOriginals = [
   originals[0],

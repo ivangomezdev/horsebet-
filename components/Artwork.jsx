@@ -1,3 +1,5 @@
+import BonusSymbol from "./games/BonusSymbol";
+
 export function ObjectArt({ kind, className = "" }) {
   return (
     <span
@@ -7,6 +9,55 @@ export function ObjectArt({ kind, className = "" }) {
   );
 }
 export function GameArt({ game }) {
+  if (game.cover)
+    return (
+      <span className="game-art slot-cover" aria-hidden="true">
+        <img
+          className="slot-cover__image"
+          src={game.cover}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="480"
+          height="640"
+        />
+        <span className="slot-cover__shade" />
+        <span className="slot-cover__shine" />
+      </span>
+    );
+  if (game.bonusTheme)
+    return (
+      <span
+        className={`game-art bonus-card-art bonus-card-art--${game.bonusTheme}`}
+        style={{
+          "--card-accent": game.bonusAccent,
+          "--card-dark": game.bonusDark,
+        }}
+        aria-hidden="true"
+      >
+        <BonusSymbol icon={game.bonusIcon} label={game.title} />
+        <span>{game.bonusLabel}</span>
+      </span>
+    );
+  if (game.slotTheme && game.art === undefined) {
+    const emblem =
+      game.slotTheme === "neon-gems"
+        ? "diamond"
+        : game.slotTheme === "ruby-rush"
+          ? "ruby"
+          : "horse";
+    return (
+      <span
+        className={`game-art slot-card-art slot-card-art--${game.slotTheme}`}
+        aria-hidden="true"
+      >
+        <span className="slot-card-art__ring" />
+        <i className={`slot-symbol slot-symbol--${emblem}`} />
+        <span className="slot-card-art__label">HORSEBET SLOTS</span>
+        <span className="slot-card-art__spark">✦</span>
+      </span>
+    );
+  }
   return (
     <span
       className={`game-art ${game.color ? `game-art--${game.color}` : ""}`}

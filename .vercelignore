@@ -1,0 +1,9 @@
+.git
+.next
+.next-horsebet
+out
+outputs
+.openai
+.env*
+node_modules
+*.log

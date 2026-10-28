@@ -187,59 +187,6 @@ export const regularBonuses = [
     art: 0,
   },
 ];
-export const vipBenefits = [
-  {
-    title: "Bonus de bienvenida VIP",
-    description:
-      "Una bienvenida especial con atención de tu gestor VIP personal.",
-    art: 0,
-  },
-  {
-    title: "Bonus de recompensa",
-    description:
-      "Una selección de recompensas exclusivas tres veces por semana.",
-    art: 4,
-  },
-  {
-    title: "Bonos VIP personales",
-    description: "Ventajas personalizadas para acompañarte en tu experiencia.",
-    art: 2,
-  },
-  {
-    title: "Bonus deportivo",
-    description:
-      "Recompensas especiales para quienes viven la emoción del deporte.",
-    art: 3,
-  },
-  {
-    title: "Códigos promocionales",
-    description: "Descubre promociones exclusivas de la comunidad VIP.",
-    art: 5,
-  },
-  {
-    title: "Giros gratis y bonus por depósito",
-    description:
-      "Explora una selección de beneficios para tus juegos favoritos.",
-    art: 1,
-  },
-];
-export const vipExtraBenefits = [
-  {
-    title: "Gestor personal",
-    description: "Un punto de contacto para acompañarte en tu experiencia VIP.",
-    art: 4,
-  },
-  {
-    title: "Atención prioritaria",
-    description: "Un espacio dedicado para tus consultas y solicitudes.",
-    art: 0,
-  },
-  {
-    title: "Comunidad exclusiva",
-    description: "Descubre novedades y experiencias para miembros del club.",
-    art: 5,
-  },
-];
 export const promoCards = [
   {
     id: "welcome",

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import {
-  Crown,
   Gift,
   Rocket,
   Check,
@@ -9,15 +8,17 @@ import {
   Headphones,
   Mail,
 } from "lucide-react";
+import { FeatureHero, BenefitsGrid, FAQ, Breadcrumb } from "./Shared";
 import {
-  FeatureHero,
-  BenefitsGrid,
-  RewardArt,
-  FAQ,
-  Breadcrumb,
-  FeatureDialog,
-} from "./Shared";
-import { vipBenefits, vipExtraBenefits } from "../../data/features";
+  vipBenefits,
+  vipExtraBenefits,
+  superVipBenefits,
+} from "../../data/vip-benefits";
+import VipBenefitDialog from "./VipBenefitDialog";
+import VipIcon from "./VipIcon";
+import { useAuth } from "../auth/AuthProvider";
+import { useMember } from "../member/MemberProvider";
+import { rankProgress } from "../../lib/account/member";
 
 const rankBenefits = (rank) => ({
   name:
@@ -33,6 +34,9 @@ const rankBenefits = (rank) => ({
   regular: rank >= 10 ? 10 : 6,
 });
 export default function VipClub({ onAction, onHome }) {
+  const { user } = useAuth();
+  const { data } = useMember();
+  const progress = rankProgress(data?.points || "0");
   const [tab, setTab] = useState("Premios especiales");
   const [rank, setRank] = useState(10);
   const [showRanks, setShowRanks] = useState(false);
@@ -53,6 +57,26 @@ export default function VipClub({ onAction, onHome }) {
         </span>
       </FeatureHero>
       <div className="content feature-content">
+        {user && data && (
+          <section className="vip-personal">
+            <VipIcon />
+            <div>
+              <span>TU NIVEL ACTUAL</span>
+              <h2>
+                Nivel {progress.level} · {progress.percent}%
+              </h2>
+              <p>
+                {progress.nextLevel === null
+                  ? "Nivel máximo alcanzado"
+                  : `${progress.remaining} puntos para el nivel ${progress.nextLevel}`}
+                . Las rondas demo no suman puntos.
+              </p>
+              <div className="member-progress">
+                <i style={{ width: progress.percent + "%" }} />
+              </div>
+            </div>
+          </section>
+        )}
         <section>
           <div className="feature-heading vip-heading">
             <div>
@@ -86,6 +110,7 @@ export default function VipClub({ onAction, onHome }) {
             </div>
           </div>
           <BenefitsGrid
+            Art={VipIcon}
             items={
               tab === "Premios especiales" ? vipBenefits : vipExtraBenefits
             }
@@ -93,7 +118,7 @@ export default function VipClub({ onAction, onHome }) {
           />
         </section>
         <section className="vip-ranks">
-          <RewardArt index={0} className="vip-ranks__crown" />
+          <VipIcon index={0} className="vip-ranks__crown" />
           <div className="feature-section__intro">
             <h2>
               Sistema de Ranks:
@@ -124,17 +149,17 @@ export default function VipClub({ onAction, onHome }) {
           </div>
           <div className="vip-ranks__stats">
             <article>
-              <RewardArt index={2} />
+              <VipIcon index={2} />
               <p>Cashback</p>
               <strong>Hasta un {perks.cashback}%</strong>
             </article>
             <article>
-              <RewardArt index={4} />
+              <VipIcon index={4} />
               <p>Bonos de subida de nivel</p>
               <strong>{perks.levelBonus}</strong>
             </article>
             <article>
-              <RewardArt index={3} />
+              <VipIcon index={3} />
               <p>Bonificaciones regulares</p>
               <strong>{perks.regular} ventajas</strong>
             </article>
@@ -199,7 +224,7 @@ export default function VipClub({ onAction, onHome }) {
               </button>
             </div>
           </div>
-          <RewardArt index={4} />
+          <VipIcon index={4} />
         </section>
         <section className="feature-section">
           <div className="feature-section__intro">
@@ -212,39 +237,8 @@ export default function VipClub({ onAction, onHome }) {
             </p>
           </div>
           <BenefitsGrid
-            items={[
-              {
-                title: "Sala Súper VIP",
-                description:
-                  "Un espacio exclusivo para miembros del nivel superior.",
-                art: 0,
-              },
-              {
-                title: "Bonus Súper VIP",
-                description: "Una selección especial de recompensas del club.",
-                art: 2,
-              },
-              {
-                title: "Bonus instantáneos",
-                description: "Consulta tus recompensas en un mismo lugar.",
-                art: 3,
-              },
-              {
-                title: "Conserje VIP",
-                description: "Atención personal para acompañar tu experiencia.",
-                art: 4,
-              },
-              {
-                title: "Bonus más altos",
-                description: "Descubre los beneficios asociados a cada nivel.",
-                art: 5,
-              },
-              {
-                title: "Impulsor de Rakeback",
-                description: "Explora todas las ventajas de tu rank.",
-                art: 1,
-              },
-            ]}
+            Art={VipIcon}
+            items={superVipBenefits}
             onSelect={setSelected}
           />
         </section>
@@ -299,20 +293,10 @@ export default function VipClub({ onAction, onHome }) {
         <Breadcrumb name="Club VIP" onHome={onHome} />
       </div>
       {selected && (
-        <FeatureDialog title={selected.title} onClose={() => setSelected(null)}>
-          <RewardArt index={selected.art} className="feature-dialog__reward" />
-          <p>{selected.description}</p>
-          <p>
-            Beneficio ilustrativo de HorseBet. Explora los ranks para conocer
-            cómo se presentan las ventajas del club.
-          </p>
-          <button
-            className="button button--primary"
-            onClick={() => setSelected(null)}
-          >
-            Continuar explorando
-          </button>
-        </FeatureDialog>
+        <VipBenefitDialog
+          benefit={selected}
+          onClose={() => setSelected(null)}
+        />
       )}
     </>
   );

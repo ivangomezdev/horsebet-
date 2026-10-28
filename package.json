@@ -2,19 +2,34 @@
   "name": "horsebet-design-demo",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "serve out -l 3000",
-    "format": "prettier --write app components data next.config.mjs"
+    "start": "next start --hostname 127.0.0.1",
+    "format": "prettier --write app components data lib next.config.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check:config": "node scripts/check-config.mjs",
+    "setup:local": "node scripts/setup-local.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
+    "country-flag-icons": "^1.6.20",
+    "libphonenumber-js": "^1.13.15",
     "lucide-react": "1.62.0",
     "next": "16.4.3",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.12",
     "prettier": "^3.9.10",
     "serve": "^14.2.6"
   },

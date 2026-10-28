@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import Brand from "./Brand";
 import { ObjectArt } from "./Artwork";
+import AccountNavbar from "./member/AccountNavbar";
 
 const navigation = [
   ["Casino", Spade],
@@ -33,6 +34,7 @@ const navigation = [
   ["Cripto y Gana", CircleDollarSign],
   ["Promociones", Megaphone],
   ["Referidos", Users],
+  ["Cuenta", ClipboardList],
   ["Comunidad", Box],
   ["Ayuda", ClipboardList],
 ];
@@ -76,12 +78,7 @@ export function Header({ onNavigate, onAction, expanded, setExpanded, user }) {
           <ObjectArt kind="gift" />
         </button>
         {user ? (
-          <button
-            className="button button--secondary"
-            onClick={() => onAction("profile")}
-          >
-            {user}
-          </button>
+          <AccountNavbar />
         ) : (
           <>
             <button
@@ -189,7 +186,7 @@ export function Sidebar({ expanded, current, onNavigate, onAction, onClose }) {
     </>
   );
 }
-export function Footer({ onAction }) {
+export function Footer({ onAction, sports = false }) {
   return (
     <footer className="footer">
       <div className="footer__top">
@@ -254,13 +251,22 @@ export function Footer({ onAction }) {
       <div className="footer__legal">
         <span className="footer__age">18+</span>
         <p>
-          HorseBet es un proyecto de demostración con imágenes originales
-          generadas con IA. Esta versión no permite apuestas, depósitos ni pagos
-          reales. Los importes y eventos son ilustrativos.
+          {sports ? (
+            "HorseBet. Solo para mayores de 18 años. Juega con responsabilidad."
+          ) : (
+            <>
+              HorseBet es un proyecto de demostración con imágenes generadas con
+              IA y recursos con licencia de reutilización. Esta versión no
+              permite apuestas, depósitos ni pagos reales. Los importes y
+              eventos son ilustrativos.
+            </>
+          )}
         </p>
       </div>
       <div className="footer__copyright">
-        <span>© 2026 · Demo de diseño HorseBet</span>
+        <span>
+          {sports ? "© 2026 · HorseBet" : "© 2026 · Demo de diseño HorseBet"}
+        </span>
         <button onClick={() => onAction("Juego responsable")}>
           Juega responsablemente
         </button>

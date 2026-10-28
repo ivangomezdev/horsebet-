@@ -5,9 +5,8 @@ import Brand from "./Brand";
 import { GameArt } from "./Artwork";
 import { information } from "../data/content";
 
-export default function Modal({ modal, onClose, onAuth, user, onLogout }) {
+export default function Modal({ modal, onClose }) {
   const dialog = useRef(null);
-  const [alias, setAlias] = useState("");
   const [revealed, setRevealed] = useState(false);
   useEffect(() => {
     const element = dialog.current;
@@ -20,7 +19,6 @@ export default function Modal({ modal, onClose, onAuth, user, onLogout }) {
       previous?.focus();
     };
   }, []);
-  const isAuth = ["login", "register"].includes(modal.type);
   const content = information[modal.type];
   return (
     <dialog
@@ -48,53 +46,7 @@ export default function Modal({ modal, onClose, onAuth, user, onLogout }) {
       >
         <X size={21} />
       </button>
-      {isAuth ? (
-        <>
-          <Brand />
-          <div className="modal__label">EXPERIENCIA DE DEMOSTRACIÓN</div>
-          <h2 id="modal-title">
-            {modal.type === "register"
-              ? "Tu aventura empieza aquí"
-              : "¡Bienvenido de nuevo!"}
-          </h2>
-          <p>
-            Explora la experiencia con un perfil local. No necesitas correo,
-            contraseña ni una cuenta real.
-          </p>
-          <form
-            className="auth-form"
-            onSubmit={(event) => {
-              event.preventDefault();
-              onAuth(alias.trim());
-            }}
-          >
-            <label htmlFor="alias">Tu alias</label>
-            <input
-              autoComplete="off"
-              id="alias"
-              placeholder="¿Cómo te llamas?"
-              value={alias}
-              onChange={(event) => setAlias(event.target.value)}
-              minLength={2}
-              maxLength={24}
-              required
-            />
-            <label className="auth-form__check">
-              <input type="checkbox" required />
-              Soy mayor de 18 años y entiendo que es una demo.
-            </label>
-            <button className="button button--primary" type="submit">
-              {modal.type === "register"
-                ? "Crear perfil de demo"
-                : "Entrar en la demo"}
-            </button>
-          </form>
-          <span className="modal__note">
-            <ShieldCheck size={15} />
-            Tu alias se guarda solo en este navegador.
-          </span>
-        </>
-      ) : modal.game ? (
+      {modal.game ? (
         <>
           <div className="modal__game-art">
             <GameArt game={modal.game} />
@@ -134,18 +86,6 @@ export default function Modal({ modal, onClose, onAuth, user, onLogout }) {
               {revealed ? "Reiniciar vista previa" : "Ver animación demo"}
             </button>
           </div>
-        </>
-      ) : modal.type === "profile" ? (
-        <>
-          <CheckCircle2 className="modal__success" size={40} />
-          <h2 id="modal-title">Hola, {user}</h2>
-          <p>
-            Tu perfil de demostración está activo en este navegador. Puedes
-            guardar tus juegos favoritos y explorar el catálogo.
-          </p>
-          <button className="button button--secondary" onClick={onLogout}>
-            Cerrar sesión de demo
-          </button>
         </>
       ) : modal.type === "language" ? (
         <>

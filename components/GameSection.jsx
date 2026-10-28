@@ -2,13 +2,16 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart, Play } from "lucide-react";
 import { GameArt } from "./Artwork";
+import { playablePath } from "../data/playable-games";
 
 export function GameCard({ game, onPlay, favorite, onFavorite }) {
   return (
-    <article className={`game-card ${game.color ? "game-card--original" : ""}`}>
+    <article
+      className={`game-card ${game.color ? "game-card--original" : ""} ${game.cover ? "game-card--illustrated" : ""}`}
+    >
       <button
         className="game-card__play"
-        aria-label={`Ver demo de ${game.title}`}
+        aria-label={`${playablePath(game.id) ? "Jugar" : "Ver demo de"} ${game.title}`}
         onClick={() => onPlay(game)}
       >
         <GameArt game={game} />

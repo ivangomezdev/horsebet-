@@ -101,12 +101,12 @@ export function FeatureDialog({ title, children, onClose, className = "" }) {
     </dialog>
   );
 }
-export function BenefitsGrid({ items, onSelect }) {
+export function BenefitsGrid({ items, onSelect, Art = RewardArt }) {
   return (
     <div className="benefit-cards">
       {items.map((item) => (
         <article className="benefit-card" key={item.title}>
-          <RewardArt index={item.art} />
+          <Art index={item.art} />
           {item.tag && <span className="benefit-card__tag">{item.tag}</span>}
           <h3>{item.title}</h3>
           <p>{item.description}</p>

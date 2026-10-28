@@ -18,7 +18,16 @@ import FeaturePages from "./FeaturePages";
 import { featurePath } from "../data/features";
 import { GameArt, ObjectArt } from "./Artwork";
 import Modal from "./Modal";
-import Sports, { SportsPreview } from "./Sports";
+import SupportChat from "./SupportChat";
+import { useAuth } from "./auth/AuthProvider";
+import AccountPage from "./account/AccountPage";
+import MemberPage from "./member/MemberPage";
+import { memberRoutes } from "../data/currencies";
+import GameStudio from "./games/GameStudio";
+import { playablePath } from "../data/playable-games";
+import { bonusSlotCatalog } from "../data/bonus-slots";
+import { SportsPreview } from "./Sports";
+import SportsBook from "./sports/SportsBook";
 import { games, originals } from "../data/content";
 
 function readLocal(key, fallback) {
@@ -36,19 +45,28 @@ function saveLocal(key, value) {
   }
 }
 
-export default function CasinoApp({ initialView = "Inicio" }) {
+export default function CasinoApp({
+  initialView = "Inicio",
+  accountTab = "account",
+  memberSection,
+  gameId,
+  sportsEventId,
+  sportsTab = "popular",
+}) {
   const router = useRouter();
   const [view, setView] = useState(initialView);
   const [expanded, setExpanded] = useState(false);
   const [modal, setModal] = useState(null);
+  const [supportOpen, setSupportOpen] = useState(false);
   const [favorites, setFavorites] = useState([]);
-  const [user, setUser] = useState("");
-  const [sport, setSport] = useState("Fútbol");
+  const { user, openAuth } = useAuth();
+  const [sport, setSport] = useState("Todos");
   useEffect(() => {
     const savedFavorites = readLocal("horsebet-demo-favorites", []);
     setFavorites(Array.isArray(savedFavorites) ? savedFavorites : []);
-    const savedUser = readLocal("horsebet-demo-user", "");
-    setUser(typeof savedUser === "string" ? savedUser : "");
+    try {
+      localStorage.removeItem("horsebet-demo-user");
+    } catch {}
     const syncHash = () => {
       const page = window.location.hash.slice(1);
       setView(
@@ -75,6 +93,8 @@ export default function CasinoApp({ initialView = "Inicio" }) {
             ? "#originales"
             : "";
       router.push(`/es/casino/${hash}`);
+    } else if (next === "Deportes") {
+      router.push("/es/sports/");
     } else if (featurePath(next)) {
       router.push(featurePath(next));
     } else if (next === "Inicio") {
@@ -85,6 +105,19 @@ export default function CasinoApp({ initialView = "Inicio" }) {
     window.scrollTo({ top: 0, behavior: "instant" });
   };
   const open = (type) => {
+    if (type === "Ayuda") return setSupportOpen(true);
+    if (["login", "register"].includes(type)) return openAuth(type);
+    const memberSlug = Object.keys(memberRoutes).find(
+      (key) => key === type || memberRoutes[key] === type,
+    );
+    if (memberSlug) {
+      router.push(`/es/${memberSlug}/`);
+      return;
+    }
+    if (type === "Cuenta") {
+      router.push("/es/account/");
+      return;
+    }
     if (["Casino", "Deportes"].includes(type) || featurePath(type))
       return navigate(type);
     if (["Slots", "Internos"].includes(type)) {
@@ -100,10 +133,14 @@ export default function CasinoApp({ initialView = "Inicio" }) {
       saveLocal("horsebet-demo-favorites", next);
       return next;
     });
-  const onPlay = (game) => setModal({ type: "game", game });
+  const onPlay = (game) => {
+    const path = playablePath(game.id);
+    if (path) router.push(path);
+    else setModal({ type: "game", game });
+  };
   const commonGameProps = { onPlay, favorites, onFavorite: toggleFavorite };
   return (
-    <div className="site-shell">
+    <div className={`site-shell ${view === "Juego" ? "site-shell--game" : ""}`}>
       <a className="skip-link" href="#main">
         Saltar al contenido
       </a>
@@ -116,7 +153,7 @@ export default function CasinoApp({ initialView = "Inicio" }) {
       />
       <Sidebar
         expanded={expanded}
-        current={view === "Inicio" ? "Casino" : view}
+        current={view === "Inicio" || view === "Juego" ? "Casino" : view}
         onNavigate={navigate}
         onAction={open}
         onClose={() => setExpanded(false)}
@@ -212,7 +249,7 @@ export default function CasinoApp({ initialView = "Inicio" }) {
               <GameSection
                 title="Slots Top"
                 id="slots"
-                games={games}
+                games={bonusSlotCatalog}
                 {...commonGameProps}
                 onSeeAll={() => {
                   navigate("Casino", undefined, "Slots");
@@ -286,12 +323,22 @@ export default function CasinoApp({ initialView = "Inicio" }) {
               </section>
             </div>
           </>
+        ) : view === "Juego" && gameId ? (
+          <GameStudio key={gameId} gameId={gameId} />
         ) : view === "Casino" ? (
           <CasinoLobby
             onAction={open}
             {...commonGameProps}
             onHome={() => navigate("Inicio")}
           />
+        ) : view === "Mi espacio" ? (
+          <MemberPage
+            key={memberSection}
+            section={memberSection}
+            onSupport={() => open("Ayuda")}
+          />
+        ) : view === "Cuenta" ? (
+          <AccountPage tab={accountTab} onHome={() => navigate("Inicio")} />
         ) : featurePath(view) ? (
           <FeaturePages
             key={view}
@@ -300,23 +347,28 @@ export default function CasinoApp({ initialView = "Inicio" }) {
             onHome={() => navigate("Inicio")}
           />
         ) : (
-          <div className="content content--page">
-            <Sports key={sport} initialSport={sport} />
-          </div>
+          <SportsBook
+            key={`${sportsEventId || "lobby"}-${sportsTab}-${sport}`}
+            eventId={sportsEventId}
+            initialTab={sportsTab}
+            initialSport={sport}
+          />
         )}
         <div className="content">
-          <Footer onAction={open} />
+          <Footer onAction={open} sports={view === "Deportes"} />
         </div>
       </main>
-      <button
-        className="support-button"
-        aria-label="Abrir ayuda"
-        onClick={() => open("Ayuda")}
-      >
-        <Headphones size={23} />
-      </button>
+      {view !== "Juego" && (
+        <button
+          className="support-button"
+          aria-label="Abrir ayuda"
+          onClick={() => open("Ayuda")}
+        >
+          <Headphones size={23} />
+        </button>
+      )}
       <MobileNav
-        current={view}
+        current={view === "Juego" ? "Casino" : view}
         onNavigate={navigate}
         onAction={open}
         onMenu={() => setExpanded(!expanded)}
@@ -326,19 +378,13 @@ export default function CasinoApp({ initialView = "Inicio" }) {
           key={`${modal.type}-${modal.game?.id || ""}`}
           modal={modal}
           onClose={() => setModal(null)}
-          user={user}
-          onAuth={(alias) => {
-            setUser(alias);
-            saveLocal("horsebet-demo-user", alias);
-            setModal(null);
-          }}
-          onLogout={() => {
-            setUser("");
-            saveLocal("horsebet-demo-user", "");
-            setModal(null);
-          }}
         />
       )}
+      <SupportChat
+        key={user?.id || "guest"}
+        open={supportOpen}
+        onClose={() => setSupportOpen(false)}
+      />
     </div>
   );
 }

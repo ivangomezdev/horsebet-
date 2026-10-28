@@ -1,26 +1,23 @@
 "use client";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import useCarousel from "./useCarousel";
+import CarouselControls from "./CarouselControls";
 import { casinoPromotions } from "../data/casino";
 
 export default function CasinoPromotions({ onAction }) {
-  const [active, setActive] = useState(0);
+  const carousel = useCarousel(casinoPromotions.length);
+  const { active } = carousel;
   const ordered = [
     ...casinoPromotions.slice(active),
     ...casinoPromotions.slice(0, active),
   ];
-  const move = (direction) =>
-    setActive(
-      (value) =>
-        (value + direction + casinoPromotions.length) % casinoPromotions.length,
-    );
   return (
     <section
       className="casino-promotions"
+      {...carousel.interactionProps}
       aria-label="Promociones del casino"
       aria-roledescription="carrusel"
     >
-      <div className="casino-promotions__track">
+      <div className="casino-promotions__track" key={active}>
         {ordered.map((promotion) => (
           <button
             key={promotion.id}
@@ -44,23 +41,12 @@ export default function CasinoPromotions({ onAction }) {
           </button>
         ))}
       </div>
-      <div className="casino-promotions__controls">
-        <button onClick={() => move(-1)} aria-label="Banners anteriores">
-          <ChevronLeft size={18} />
-        </button>
-        {casinoPromotions.map((promotion, index) => (
-          <button
-            key={promotion.id}
-            className={`casino-promotions__dot ${active === index ? "casino-promotions__dot--active" : ""}`}
-            aria-label={`Ver banner ${index + 1}`}
-            aria-pressed={active === index}
-            onClick={() => setActive(index)}
-          />
-        ))}
-        <button onClick={() => move(1)} aria-label="Banners siguientes">
-          <ChevronRight size={18} />
-        </button>
-      </div>
+      <CarouselControls
+        carousel={carousel}
+        count={casinoPromotions.length}
+        label="Banner"
+        className="casino-promotions__controls"
+      />
     </section>
   );
 }

@@ -1,0 +1,83 @@
+.carousel-controls {
+  --carousel-progress: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.carousel-controls__arrow,
+.carousel-controls__pause {
+  display: grid;
+  place-items: center;
+  color: #929aa7;
+  padding: 4px;
+  border-radius: 5px;
+}
+.carousel-controls__pause {
+  margin-left: 4px;
+}
+.carousel-controls__arrow:hover,
+.carousel-controls__pause:hover {
+  color: #fff;
+  background: #ffffff0a;
+}
+.carousel-controls__indicator {
+  position: relative;
+  width: 16px;
+  height: 24px;
+  padding: 0;
+  flex-shrink: 0;
+  background: transparent;
+}
+.carousel-controls__indicator::before,
+.carousel-controls__fill {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 3px;
+}
+.carousel-controls__indicator::before {
+  content: "";
+  background: #3d444e;
+}
+.carousel-controls__fill {
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.carousel-controls__indicator--active {
+  width: 56px;
+}
+.carousel-controls__indicator--active .carousel-controls__fill {
+  transform: scaleX(var(--carousel-progress));
+}
+.carousel-controls__indicator--complete .carousel-controls__fill {
+  transform: scaleX(1);
+}
+.carousel-controls button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.casino-promotions__track {
+  animation: carousel-reveal 0.35s ease-out;
+}
+@keyframes carousel-reveal {
+  from {
+    opacity: 0.65;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .casino-promotions__track {
+    animation: none;
+  }
+  .carousel-controls__indicator--active .carousel-controls__fill {
+    transform: scaleX(1);
+  }
+}

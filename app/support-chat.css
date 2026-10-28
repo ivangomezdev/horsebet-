@@ -1,0 +1,206 @@
+.support-chat {
+  position: fixed;
+  z-index: 150;
+  right: 24px;
+  bottom: 88px;
+  width: min(390px, calc(100vw - 28px));
+  height: min(570px, calc(100dvh - 115px));
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #171e28;
+  border: 1px solid #394150;
+  box-shadow: 0 20px 80px #0009;
+  animation: support-open 0.2s ease-out;
+}
+.support-chat__header {
+  padding: 20px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: linear-gradient(125deg, #ff0646, #b70b39);
+  flex-shrink: 0;
+}
+.support-chat__header h2 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  color: #fff;
+}
+.support-chat__header div > span {
+  font-size: 11px;
+  color: #ffe1e9;
+}
+.support-chat__avatar {
+  width: 43px;
+  height: 43px;
+  border: 1px solid #ffffff44;
+  background: #ffffff1a;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.support-chat__close {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: #0002;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.support-chat__intro {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  color: #c6d1df;
+  font-size: 11px;
+  padding: 12px;
+  border-bottom: 1px solid #ffffff0b;
+}
+.support-chat__local {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #b7bfd0;
+  padding: 9px 16px;
+  background: #202836;
+  margin: 0;
+}
+.support-chat__messages {
+  padding: 18px 15px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  overscroll-behavior: contain;
+}
+.support-chat__message {
+  align-self: flex-start;
+  max-width: 92%;
+  padding: 13px 14px 9px;
+  border-radius: 3px 14px 14px 14px;
+  background: #283240;
+  border: 1px solid #3b4553;
+  animation: support-open 0.18s ease-out;
+}
+.support-chat__message > span {
+  font-size: 9px;
+  font-weight: 700;
+  color: #a9b6c7;
+}
+.support-chat__message p {
+  margin: 6px 0;
+  color: #f6f7fb;
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.support-chat__message time {
+  display: block;
+  text-align: right;
+  color: #9eacbe;
+  font-size: 9px;
+}
+.support-chat__message--user {
+  align-self: flex-end;
+  border-radius: 14px 3px 14px 14px;
+  background: #92213f;
+  border-color: #bc3455;
+}
+.support-chat__message--user > span,
+.support-chat__message--user time {
+  color: #ffd8e2;
+}
+.support-chat__form {
+  display: grid;
+  grid-template-columns: 1fr 42px;
+  gap: 9px;
+  padding: 14px;
+  border-top: 1px solid #394150;
+  background: #1c2531;
+  flex-shrink: 0;
+}
+.support-chat__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.support-chat__form textarea {
+  resize: none;
+  background: #111923;
+  border: 1px solid #394657;
+  border-radius: 9px;
+  color: #fff;
+  padding: 10px;
+  font: inherit;
+  font-size: 13px;
+  min-width: 0;
+}
+.support-chat__form textarea:focus {
+  outline: 2px solid #ff2157;
+  outline-offset: 1px;
+}
+.support-chat__form button {
+  background: #ff0646;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.support-chat__form button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.support-chat__form small {
+  grid-column: 1/-1;
+  color: #96a4b8;
+  font-size: 9px;
+  text-align: center;
+}
+.support-chat__error {
+  color: #ffb3c5;
+  margin: 0;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+.support-chat__sending {
+  color: #a7b9cf;
+  font-size: 11px;
+}
+@keyframes support-open {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  .support-chat {
+    right: 10px;
+    bottom: 76px;
+    width: calc(100vw - 20px);
+    height: min(570px, calc(100dvh - 100px));
+  }
+  .support-chat__header {
+    padding: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .support-chat,
+  .support-chat__message {
+    animation: none;
+  }
+}

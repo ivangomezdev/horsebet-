@@ -426,28 +426,6 @@ h2 {
   left: 50%;
   transform: translateX(-50%);
 }
-.hero__controls > button:not(.hero__dot) {
-  color: #8a939e;
-  display: flex;
-  padding: 4px;
-}
-.hero__dot {
-  width: 15px;
-  height: 4px;
-  border-radius: 4px;
-  background: #41454e;
-  padding: 0;
-  position: relative;
-}
-.hero__dot::before {
-  content: "";
-  position: absolute;
-  inset: -10px -2px;
-}
-.hero__dot--active {
-  background: white;
-  width: 25px;
-}
 .object-art {
   display: block;
   background-image: url("/images/objects.png");

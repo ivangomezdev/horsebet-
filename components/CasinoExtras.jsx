@@ -79,60 +79,7 @@ export function WelcomeBonuses({ onAction, title, showHeading = true }) {
   );
 }
 
-export function RecentWins({ onPlay }) {
-  const rail = useRef(null);
-  return (
-    <section className="casino-wins">
-      <div className="section-heading">
-        <h2>Principales victorias recientes</h2>
-        <div className="section-heading__actions">
-          <span className="casino-wins__notice">DEMO</span>
-          {[-1, 1].map((direction) => (
-            <button
-              key={direction}
-              className="button button--arrow"
-              aria-label={
-                direction === 1
-                  ? "Ver siguientes victorias"
-                  : "Ver anteriores victorias"
-              }
-              onClick={() =>
-                rail.current.scrollBy({
-                  left: direction * 350,
-                  behavior: "smooth",
-                })
-              }
-            >
-              {direction === 1 ? (
-                <ChevronRight size={18} />
-              ) : (
-                <ChevronLeft size={18} />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="winners__rail" ref={rail}>
-        {casinoSlots.map((game, index) => (
-          <button className="winner" key={game.id} onClick={() => onPlay(game)}>
-            <span className="winner__art">
-              <GameArt game={game} />
-              <strong>{game.title}</strong>
-            </span>
-            <span className="winner__amount">
-              <Bitcoin size={12} /> MX$
-              {
-                ["82.793", "20.698", "69.187", "31.326", "41.396", "165.590"][
-                  index % 6
-                ]
-              }
-            </span>
-          </button>
-        ))}
-      </div>
-    </section>
-  );
-}
+export { default as RecentWins } from "./RecentWins";
 
 export function Providers({ onSelect }) {
   return (

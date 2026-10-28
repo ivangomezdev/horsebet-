@@ -1,0 +1,597 @@
+{
+  "reference": "https://betfury.com/es/sports",
+  "retrieved": "2026-10-27",
+  "note": "Reference UI icons and club marks for the local HorseBet design prototype. Third-party assets; no ownership or open-source license is claimed.",
+  "teams": [
+    {
+      "name": "Parma Calcio",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2690.png",
+      "local": "/images/sports/teams/2690.png"
+    },
+    {
+      "name": "Udinese Calcio",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2695.png",
+      "local": "/images/sports/teams/2695.png"
+    },
+    {
+      "name": "Venecia",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2688.png",
+      "local": "/images/sports/teams/2688.png"
+    },
+    {
+      "name": "Inter Milán",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2697.png",
+      "local": "/images/sports/teams/2697.png"
+    },
+    {
+      "name": "AC Milán",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2692.png",
+      "local": "/images/sports/teams/2692.png"
+    },
+    {
+      "name": "Bolonia FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2685.png",
+      "local": "/images/sports/teams/2685.png"
+    },
+    {
+      "name": "Génova CFC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2713.png",
+      "local": "/images/sports/teams/2713.png"
+    },
+    {
+      "name": "Juventus",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2687.png",
+      "local": "/images/sports/teams/2687.png"
+    },
+    {
+      "name": "AC Monza",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2729.png",
+      "local": "/images/sports/teams/2729.png"
+    },
+    {
+      "name": "SSC Nápoles",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2714.png",
+      "local": "/images/sports/teams/2714.png"
+    },
+    {
+      "name": "Red Bull Bragantino SP",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1999.png",
+      "local": "/images/sports/teams/1999.png"
+    },
+    {
+      "name": "Chapecoense SC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/21845.png",
+      "local": "/images/sports/teams/21845.png"
+    },
+    {
+      "name": "Fluminense RJ",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1961.png",
+      "local": "/images/sports/teams/1961.png"
+    },
+    {
+      "name": "Internacional RS",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1966.png",
+      "local": "/images/sports/teams/1966.png"
+    },
+    {
+      "name": "Santos",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1968.png",
+      "local": "/images/sports/teams/1968.png"
+    },
+    {
+      "name": "Palmeiras SP",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1963.png",
+      "local": "/images/sports/teams/1963.png"
+    },
+    {
+      "name": "EC Bahia BA",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1955.png",
+      "local": "/images/sports/teams/1955.png"
+    },
+    {
+      "name": "São Paulo",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1981.png",
+      "local": "/images/sports/teams/1981.png"
+    },
+    {
+      "name": "Clube do Remo PA",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2012.png",
+      "local": "/images/sports/teams/2012.png"
+    },
+    {
+      "name": "Botafogo FR RJ",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/210350.png",
+      "local": "/images/sports/teams/210350.png"
+    },
+    {
+      "name": "Frosinone Calcio",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2801.png",
+      "local": "/images/sports/teams/2801.png"
+    },
+    {
+      "name": "US Lecce",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2689.png",
+      "local": "/images/sports/teams/2689.png"
+    },
+    {
+      "name": "ACF Fiorentina",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2693.png",
+      "local": "/images/sports/teams/2693.png"
+    },
+    {
+      "name": "Atalanta BC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2686.png",
+      "local": "/images/sports/teams/2686.png"
+    },
+    {
+      "name": "Atletico Mineiro MG",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/552277.png",
+      "local": "/images/sports/teams/552277.png"
+    },
+    {
+      "name": "Cruzeiro MG",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1954.png",
+      "local": "/images/sports/teams/1954.png"
+    },
+    {
+      "name": "CR Vasco da Gama RJ",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1974.png",
+      "local": "/images/sports/teams/1974.png"
+    },
+    {
+      "name": "CR Flamengo RJ",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/5981.png",
+      "local": "/images/sports/teams/5981.png"
+    },
+    {
+      "name": "Gremio",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/5926.png",
+      "local": "/images/sports/teams/5926.png"
+    },
+    {
+      "name": "Atletico Paranaense",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1967.png",
+      "local": "/images/sports/teams/1967.png"
+    },
+    {
+      "name": "Le Havre AC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1662.png",
+      "local": "/images/sports/teams/1662.png"
+    },
+    {
+      "name": "Paris Saint-Germain FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1644.png",
+      "local": "/images/sports/teams/1644.png"
+    },
+    {
+      "name": "OGC Niza",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1661.png",
+      "local": "/images/sports/teams/1661.png"
+    },
+    {
+      "name": "FC Stade Rennes",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1658.png",
+      "local": "/images/sports/teams/1658.png"
+    },
+    {
+      "name": "SV 07 Elversberg",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2598.png",
+      "local": "/images/sports/teams/2598.png"
+    },
+    {
+      "name": "FSV Mainz",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2556.png",
+      "local": "/images/sports/teams/2556.png"
+    },
+    {
+      "name": "Villarreal CF",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2819.png",
+      "local": "/images/sports/teams/2819.png"
+    },
+    {
+      "name": "RCD Espanyol Barcelona",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2814.png",
+      "local": "/images/sports/teams/2814.png"
+    },
+    {
+      "name": "LOSC Lille",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1643.png",
+      "local": "/images/sports/teams/1643.png"
+    },
+    {
+      "name": "RC Lens",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1648.png",
+      "local": "/images/sports/teams/1648.png"
+    },
+    {
+      "name": "Boston Celtics",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3422.png",
+      "local": "/images/sports/teams/3422.png"
+    },
+    {
+      "name": "Brooklyn Nets",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3436.png",
+      "local": "/images/sports/teams/3436.png"
+    },
+    {
+      "name": "San Antonio Spurs",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3429.png",
+      "local": "/images/sports/teams/3429.png"
+    },
+    {
+      "name": "Sacramento Kings",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3413.png",
+      "local": "/images/sports/teams/3413.png"
+    },
+    {
+      "name": "New York Knicks",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3421.png",
+      "local": "/images/sports/teams/3421.png"
+    },
+    {
+      "name": "Detroit Pistons",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3424.png",
+      "local": "/images/sports/teams/3424.png"
+    },
+    {
+      "name": "Los Angeles Lakers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3427.png",
+      "local": "/images/sports/teams/3427.png"
+    },
+    {
+      "name": "Portland Trail Blazers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3414.png",
+      "local": "/images/sports/teams/3414.png"
+    },
+    {
+      "name": "Real Sociedad B",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/24360.png",
+      "local": "/images/sports/teams/24360.png"
+    },
+    {
+      "name": "Girona FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/24264.png",
+      "local": "/images/sports/teams/24264.png"
+    },
+    {
+      "name": "Levante UD",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2849.png",
+      "local": "/images/sports/teams/2849.png"
+    },
+    {
+      "name": "Atlético Madrid",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2836.png",
+      "local": "/images/sports/teams/2836.png"
+    },
+    {
+      "name": "SD Eibar",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2839.png",
+      "local": "/images/sports/teams/2839.png"
+    },
+    {
+      "name": "UD Almería",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2858.png",
+      "local": "/images/sports/teams/2858.png"
+    },
+    {
+      "name": "Bayern Munich",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/5543.png",
+      "local": "/images/sports/teams/5543.png"
+    },
+    {
+      "name": "Real Madrid CF",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2829.png",
+      "local": "/images/sports/teams/2829.png"
+    },
+    {
+      "name": "Olympique Lyon",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/1649.png",
+      "local": "/images/sports/teams/1649.png"
+    },
+    {
+      "name": "Chelsea FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/66768.png",
+      "local": "/images/sports/teams/66768.png"
+    },
+    {
+      "name": "AS Roma",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2702.png",
+      "local": "/images/sports/teams/2702.png"
+    },
+    {
+      "name": "Liverpool FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/44.png",
+      "local": "/images/sports/teams/44.png"
+    },
+    {
+      "name": "Chelsea FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/38.png",
+      "local": "/images/sports/teams/38.png"
+    },
+    {
+      "name": "Boyacá Chicó FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/6107.png",
+      "local": "/images/sports/teams/6107.png"
+    },
+    {
+      "name": "CD Junior FC",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/6105.png",
+      "local": "/images/sports/teams/6105.png"
+    },
+    {
+      "name": "Argentinos Juniors",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3216.png",
+      "local": "/images/sports/teams/3216.png"
+    },
+    {
+      "name": "Independiente Rivadavia de Mendoza",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/36842.png",
+      "local": "/images/sports/teams/36842.png"
+    },
+    {
+      "name": "Bayern Múnich",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2672.png",
+      "local": "/images/sports/teams/2672.png"
+    },
+    {
+      "name": "1. FC Magdeburgo",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2591.png",
+      "local": "/images/sports/teams/2591.png"
+    },
+    {
+      "name": "Western Kentucky Hilltoppers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/86009.png",
+      "local": "/images/sports/teams/86009.png"
+    },
+    {
+      "name": "Detroit Lions (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631218528979660822.png",
+      "local": "/images/sports/teams/2631218528979660822.png"
+    },
+    {
+      "name": "Chicago Bears (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631218528979660816.png",
+      "local": "/images/sports/teams/2631218528979660816.png"
+    },
+    {
+      "name": "Los Angeles Chargers (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631218528979660838.png",
+      "local": "/images/sports/teams/2631218528979660838.png"
+    },
+    {
+      "name": "Las Vegas Raiders (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631218528979660839.png",
+      "local": "/images/sports/teams/2631218528979660839.png"
+    },
+    {
+      "name": "Tampa Bay Buccaneers (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631218528979660849.png",
+      "local": "/images/sports/teams/2631218528979660849.png"
+    },
+    {
+      "name": "New Orleans Saints (E)",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2631219699983196160.png",
+      "local": "/images/sports/teams/2631219699983196160.png"
+    },
+    {
+      "name": "Winnipeg Jets",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3676.png",
+      "local": "/images/sports/teams/3676.png"
+    },
+    {
+      "name": "Florida Panthers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3687.png",
+      "local": "/images/sports/teams/3687.png"
+    },
+    {
+      "name": "Anaheim Ducks",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3675.png",
+      "local": "/images/sports/teams/3675.png"
+    },
+    {
+      "name": "Vancouver Canucks",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3692.png",
+      "local": "/images/sports/teams/3692.png"
+    },
+    {
+      "name": "Vegas Golden Knights",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/344158.png",
+      "local": "/images/sports/teams/344158.png"
+    },
+    {
+      "name": "Ottawa Senators",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3700.png",
+      "local": "/images/sports/teams/3700.png"
+    },
+    {
+      "name": "Chicago Blackhawks",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3681.png",
+      "local": "/images/sports/teams/3681.png"
+    },
+    {
+      "name": "Los Angeles Kings",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3688.png",
+      "local": "/images/sports/teams/3688.png"
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3680.png",
+      "local": "/images/sports/teams/3680.png"
+    },
+    {
+      "name": "Boston Bruins",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3677.png",
+      "local": "/images/sports/teams/3677.png"
+    },
+    {
+      "name": "Dallas Stars",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3684.png",
+      "local": "/images/sports/teams/3684.png"
+    },
+    {
+      "name": "New Jersey Devils",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3704.png",
+      "local": "/images/sports/teams/3704.png"
+    },
+    {
+      "name": "St. Louis Blues",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3695.png",
+      "local": "/images/sports/teams/3695.png"
+    },
+    {
+      "name": "Montreal Canadiens",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3690.png",
+      "local": "/images/sports/teams/3690.png"
+    },
+    {
+      "name": "San Jose Sharks",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3696.png",
+      "local": "/images/sports/teams/3696.png"
+    },
+    {
+      "name": "Buffalo Sabres",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3678.png",
+      "local": "/images/sports/teams/3678.png"
+    },
+    {
+      "name": "Philadelphia Flyers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3699.png",
+      "local": "/images/sports/teams/3699.png"
+    },
+    {
+      "name": "Columbus Blue Jackets",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3683.png",
+      "local": "/images/sports/teams/3683.png"
+    },
+    {
+      "name": "Nashville Predators",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3705.png",
+      "local": "/images/sports/teams/3705.png"
+    },
+    {
+      "name": "New York Islanders",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3703.png",
+      "local": "/images/sports/teams/3703.png"
+    },
+    {
+      "name": "Minnesota Wild",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/3689.png",
+      "local": "/images/sports/teams/3689.png"
+    },
+    {
+      "name": "Colorado Eagles",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/383044.png",
+      "local": "/images/sports/teams/383044.png"
+    },
+    {
+      "name": "Charlotte Checkers",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/45181.png",
+      "local": "/images/sports/teams/45181.png"
+    },
+    {
+      "name": "Team Liquid",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2357555973343813642.png",
+      "local": "/images/sports/teams/2357555973343813642.png"
+    },
+    {
+      "name": "FURIA Esports",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2360629804610490369.png",
+      "local": "/images/sports/teams/2360629804610490369.png"
+    },
+    {
+      "name": "The MongolZ",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2359993687947227183.png",
+      "local": "/images/sports/teams/2359993687947227183.png"
+    },
+    {
+      "name": "Nemiga Gaming",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2356492774049722392.png",
+      "local": "/images/sports/teams/2356492774049722392.png"
+    },
+    {
+      "name": "BIG",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2571840524617129997.png",
+      "local": "/images/sports/teams/2571840524617129997.png"
+    },
+    {
+      "name": "Fnatic",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2356208124819546122.png",
+      "local": "/images/sports/teams/2356208124819546122.png"
+    },
+    {
+      "name": "Astralis",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2357577652044439586.png",
+      "local": "/images/sports/teams/2357577652044439586.png"
+    },
+    {
+      "name": "Magic",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2612805565176492057.png",
+      "local": "/images/sports/teams/2612805565176492057.png"
+    },
+    {
+      "name": "Team Spirit",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2358983273952186406.png",
+      "local": "/images/sports/teams/2358983273952186406.png"
+    },
+    {
+      "name": "Natus Vincere",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2145831067691651100.png",
+      "local": "/images/sports/teams/2145831067691651100.png"
+    },
+    {
+      "name": "HOTU",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2358725219864158221.png",
+      "local": "/images/sports/teams/2358725219864158221.png"
+    },
+    {
+      "name": "GamerLegion",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2358983273952186401.png",
+      "local": "/images/sports/teams/2358983273952186401.png"
+    },
+    {
+      "name": "B8",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2356916439572688938.png",
+      "local": "/images/sports/teams/2356916439572688938.png"
+    },
+    {
+      "name": "Alliance",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2350990044023627793.png",
+      "local": "/images/sports/teams/2350990044023627793.png"
+    },
+    {
+      "name": "Team Abyssal",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2636087555258458152.png",
+      "local": "/images/sports/teams/2636087555258458152.png"
+    },
+    {
+      "name": "Rooster",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2359887546344935458.png",
+      "local": "/images/sports/teams/2359887546344935458.png"
+    },
+    {
+      "name": "Team Nemesis",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2570575125426610176.png",
+      "local": "/images/sports/teams/2570575125426610176.png"
+    },
+    {
+      "name": "Eternal Fire",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2590251095821525036.png",
+      "local": "/images/sports/teams/2590251095821525036.png"
+    },
+    {
+      "name": "Luminosity Gaming",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2684170743427772444.png",
+      "local": "/images/sports/teams/2684170743427772444.png"
+    },
+    {
+      "name": "Team Envy",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2718504551748603910.png",
+      "local": "/images/sports/teams/2718504551748603910.png"
+    },
+    {
+      "name": "Nightmare Foxes",
+      "src": "https://d1bvoel1nv172p.cloudfront.net/competitors/images/normal/medium/2550020447680991232.png",
+      "local": "/images/sports/teams/2550020447680991232.png"
+    }
+  ]
+}

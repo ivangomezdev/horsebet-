@@ -1,0 +1,282 @@
+.game-layout.slot-layout--integrated {
+  grid-template-columns: minmax(0, 1fr);
+}
+.slot-layout--integrated .slot-stage {
+  padding: 24px 32px 16px;
+}
+.slot-layout--integrated .slot-stage__title {
+  min-height: 80px;
+  margin-bottom: 16px;
+}
+.slot-layout--integrated .slot-cabinet {
+  width: min(100%, 700px);
+  margin-inline: auto;
+}
+.slot-console {
+  position: relative;
+  width: min(100%, 960px);
+  margin: 20px auto 12px;
+  padding: 20px 22px 0;
+  border: 1px solid color-mix(in srgb, var(--slot-gold) 50%, #17202c);
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--slot-dark) 48%, #111722) 0%,
+    #10151ef5 100%
+  );
+  box-shadow:
+    0 12px 32px #0007,
+    inset 0 1px #ffffff18;
+  backdrop-filter: blur(16px);
+  text-align: left;
+}
+.slot-console__main {
+  display: grid;
+  grid-template-columns: minmax(110px, 1fr) minmax(190px, 1.25fr) 120px minmax(
+      110px,
+      1fr
+    );
+  align-items: center;
+  gap: 22px;
+}
+.slot-console__balance,
+.slot-console__return {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.slot-console__balance > span,
+.slot-console__return > span {
+  color: #bfbdba;
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  line-height: 1.5;
+}
+.slot-console__balance strong,
+.slot-console__return strong {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-variant-numeric: tabular-nums;
+  color: #fff3d8;
+  overflow-wrap: anywhere;
+}
+.slot-console__return strong {
+  color: var(--slot-gold);
+}
+.slot-console__balance small,
+.slot-console__return small {
+  font-size: 8px;
+  color: #9299a6;
+  letter-spacing: 1px;
+}
+.slot-console .game-bet {
+  width: 100%;
+}
+.slot-console .game-bet__input {
+  background: #090e16c9;
+  border-color: #ffffff28;
+}
+.slot-console .game-bet__input input {
+  min-width: 0;
+}
+.slot-console .game-bet > small {
+  font-size: 9px;
+}
+.slot-console__spin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  border: 4px solid color-mix(in srgb, var(--slot-gold) 60%, #fff);
+  outline: 1px solid #0007;
+  background:
+    radial-gradient(circle at 35% 20%, #fff5, transparent 65%), var(--slot-gold);
+  color: #19141c;
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--slot-gold) 50%, #090a13),
+    0 8px 25px #0009,
+    inset 0 0 0 3px #0002;
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+}
+.slot-console__spin span {
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.25;
+  max-width: 88px;
+  text-align: center;
+}
+.slot-console__spin:hover:not(:disabled) {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+.slot-console__spin:active:not(:disabled) {
+  transform: translateY(2px);
+}
+.slot-console button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.slot-console button:focus-visible,
+.slot-console summary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.slot-console__settings {
+  margin-top: 18px;
+  border-top: 1px solid #ffffff12;
+}
+.slot-console__settings summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 0;
+  font-size: 11px;
+  color: #b7bfca;
+  cursor: pointer;
+  list-style: none;
+}
+.slot-console__settings summary::-webkit-details-marker {
+  display: none;
+}
+.slot-console__settings summary > span {
+  margin-left: auto;
+  color: var(--slot-gold);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.slot-console__tools {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+}
+.slot-console__tools button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  background: #ffffff09;
+  color: #d9dce3;
+  font-size: 11px;
+}
+.slot-console__settings p {
+  color: #909aaa;
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 0 0 15px;
+}
+.slot-console--arcade {
+  max-width: 760px;
+  border-radius: 12px 12px 30px 30px;
+  border-bottom-width: 5px;
+}
+.slot-console--arcade .slot-console__main {
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 14px;
+}
+.slot-console--arcade .slot-console__spin {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0 auto;
+  width: 124px;
+  height: 96px;
+  border-radius: 24px;
+}
+.slot-console--arcade .slot-console__bet {
+  grid-column: 2;
+  grid-row: 2;
+}
+.slot-console--arcade .slot-console__balance {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.slot-console--arcade .slot-console__return {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  text-align: right;
+}
+@media (max-width: 1000px) {
+  .slot-console__main {
+    gap: 14px;
+    grid-template-columns: 1fr 1.4fr 100px 1fr;
+  }
+  .slot-console__spin {
+    width: 96px;
+    height: 96px;
+  }
+}
+@media (max-width: 700px) {
+  .slot-layout--integrated .slot-stage {
+    padding: 18px 12px 12px;
+  }
+  .slot-console {
+    padding: 16px 14px 0;
+    border-radius: 16px;
+  }
+  .slot-console__main {
+    grid-template-columns: minmax(0, 1fr) 100px;
+    gap: 18px 14px;
+  }
+  .slot-console__balance {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .slot-console__return {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+  .slot-console__bet {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .slot-console__spin {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .slot-console--arcade .slot-console__main {
+    grid-template-columns: minmax(0, 1fr) 100px;
+  }
+  .slot-console--arcade .slot-console__balance {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .slot-console--arcade .slot-console__return {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .slot-console--arcade .slot-console__bet {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .slot-console--arcade .slot-console__spin {
+    grid-column: 2;
+    grid-row: 2;
+    width: 96px;
+  }
+  .slot-console .game-bet__input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+  }
+  .slot-console .game-bet__input > svg {
+    display: none;
+  }
+  .slot-console .game-bet__input input {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 16px;
+  }
+  .slot-console .game-bet__input button {
+    width: 100%;
+    height: 32px;
+  }
+}

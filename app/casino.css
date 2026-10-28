@@ -111,28 +111,6 @@
   gap: 8px;
   padding: 15px 0 28px;
 }
-.casino-promotions__controls > button:not(.casino-promotions__dot) {
-  display: flex;
-  color: #8b93a0;
-  padding: 3px;
-}
-.casino-promotions__dot {
-  position: relative;
-  width: 17px;
-  height: 4px;
-  padding: 0;
-  border-radius: 4px;
-  background: #303741;
-}
-.casino-promotions__dot::before {
-  position: absolute;
-  content: "";
-  inset: -10px -2px;
-}
-.casino-promotions__dot--active {
-  width: 42px;
-  background: #e8ebf2;
-}
 .casino-toolbar {
   display: flex;
   justify-content: space-between;
@@ -414,6 +392,138 @@
 }
 .welcome-bonus > .button:hover {
   background: var(--red-hover);
+}
+.wins-ticker {
+  margin-top: 45px;
+}
+.wins-ticker__controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.wins-ticker__controls > span {
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  font-weight: 750;
+  color: #8290a4;
+}
+.wins-ticker__viewport {
+  overflow: hidden;
+  padding: 2px 0 8px;
+}
+.wins-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: wins-loop 680s linear infinite;
+  will-change: transform;
+}
+.wins-ticker__group {
+  display: flex;
+  gap: 12px;
+  padding-right: 12px;
+}
+.wins-ticker__card {
+  padding: 0;
+  width: 100px;
+  flex: 0 0 100px;
+  text-align: left;
+}
+.wins-ticker__art {
+  display: block;
+  position: relative;
+  isolation: isolate;
+  height: 108px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.wins-ticker__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, #000a);
+  z-index: -1;
+}
+.wins-ticker__art > strong {
+  position: absolute;
+  bottom: 8px;
+  left: 5px;
+  right: 5px;
+  color: white;
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px;
+  text-transform: uppercase;
+  line-height: 0.95;
+  text-shadow: 0 2px 5px #0008;
+}
+.wins-ticker__amount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 750;
+  color: #3ce34b;
+  margin-top: 9px;
+  white-space: nowrap;
+}
+.wins-ticker__avatar {
+  display: grid;
+  place-items: center;
+  background: hsl(var(--player-hue) 35% 22%);
+  border: 1px solid hsl(var(--player-hue) 55% 50%);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: hsl(var(--player-hue) 70% 85%);
+  font-size: 7px;
+}
+.wins-ticker__card > small {
+  font-size: 9px;
+  color: #77899f;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 5px 0 0;
+  white-space: nowrap;
+}
+.wins-ticker--paused .wins-ticker__track,
+.wins-ticker__viewport:hover .wins-ticker__track,
+.wins-ticker__viewport:focus-within .wins-ticker__track {
+  animation-play-state: paused;
+}
+@keyframes wins-loop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 700px) {
+  .wins-ticker .section-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .wins-ticker .section-heading h2 {
+    font-size: 18px;
+  }
+  .wins-ticker__controls > span {
+    max-width: 92px;
+    line-height: 1.5;
+    font-size: 7px;
+  }
+  .wins-ticker__controls {
+    gap: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wins-ticker__track {
+    animation: none;
+  }
+  .wins-ticker__viewport {
+    overflow-x: auto;
+  }
+  .wins-ticker__group[aria-hidden="true"] {
+    display: none;
+  }
 }
 .casino-wins {
   margin-top: 45px;
