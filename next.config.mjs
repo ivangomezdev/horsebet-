@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: ".next-horsebet",
+  distDir: process.env.VERCEL === "1" ? ".next" : ".next-horsebet",
   images: { unoptimized: true },
   trailingSlash: true,
   async headers() {
